@@ -1,0 +1,21 @@
+pkgname=gnu-c-manual-info
+pkgver=0.2.5
+pkgrel=1
+pkgdesc="GNU C Manual info documentation"
+arch=('any')
+url="https://www.gnu.org/software/gnu-c-manual/"
+license=('GPL')
+makedepends=('texinfo')
+source=("https://ftp.gnu.org/gnu/gnu-c-manual/gnu-c-manual-${pkgver}.tar.gz")
+sha256sums=(SKIP)
+
+build() {
+    cd "${srcdir}/gnu-c-manual-${pkgver}"
+    make
+}
+
+package() {
+    install -dm755 "${pkgdir}/usr/share/info/"
+    install -m644 "${srcdir}/gnu-c-manual-${pkgver}/gnu-c-manual.info" \
+            "${pkgdir}/usr/share/info/"
+}
