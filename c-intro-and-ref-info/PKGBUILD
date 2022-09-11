@@ -1,0 +1,30 @@
+pkgname=c-intro-and-ref-info
+pkgver=r22.362d489
+pkgrel=1
+pkgdesc="GNU C Language Intro and Reference"
+url="https://savannah.gnu.org/git/?group=c-intro-and-ref"
+arch=('x86_64')
+license=('GPL')
+makedepends=('texinfo')
+source=("git+https://git.savannah.gnu.org/git/c-intro-and-ref.git")
+md5sums=("SKIP")
+
+pkgver() {
+  cd "c-intro-and-ref"
+  printf "r%s.%s" "$(git rev-list --count HEAD)" "$(git rev-parse --short HEAD)"
+}
+
+build() {
+    cd "${srcdir}/c-intro-and-ref"
+    # fix name collision with gnu-c-manual which has the same header(C)
+    sed -i 's/* C: (c)/* C Intro: (c)/g' c.texi
+    make c.info
+}
+
+package() {
+    install -dm755 "${pkgdir}/usr/share/info/"
+    install -m644 "${srcdir}/c-intro-and-ref/c" "${pkgdir}/usr/share/info/"
+    install -m644 "${srcdir}/c-intro-and-ref/c-1" "${pkgdir}/usr/share/info/"
+    install -m644 "${srcdir}/c-intro-and-ref/c-2" "${pkgdir}/usr/share/info/"
+    install -m644 "${srcdir}/c-intro-and-ref/c-3" "${pkgdir}/usr/share/info/"
+}
