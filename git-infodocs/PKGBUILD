@@ -1,0 +1,21 @@
+_pkgname=git
+pkgname=git-infodocs
+pkgver=2.37.3
+pkgrel=1
+pkgdesc='info documentation for git'
+arch=('x86_64')
+url='https://git-scm.com/'
+license=('GPL2')
+makedepends=('python' 'xmlto' 'asciidoc' 'docbook2x')
+source=("https://www.kernel.org/pub/software/scm/git/git-$pkgver.tar.xz")
+sha256sums=('SKIP')
+
+build() {
+    cd "$srcdir/$_pkgname-$pkgver"
+    make DOCBOOK2X_TEXI=db2x_docbook2texi DESTDIR="$pkgdir" prefix='/usr' info
+}
+
+package() {
+    cd "$srcdir/$_pkgname-$pkgver"
+    make DESTDIR="$pkgdir" prefix='/usr' install-info
+}
