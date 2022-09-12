@@ -1,0 +1,8 @@
+*~
+*.log
+pkg/
+src/
+*.tar.*
+emacs-git
+*.local
+local
