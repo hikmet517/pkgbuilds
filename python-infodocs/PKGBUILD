@@ -1,5 +1,5 @@
 pkgname=python-infodocs
-pkgver=3.10.7
+pkgver=3.10.9
 pkgrel=1
 pkgdesc="Info documentation for python"
 arch=('any')
