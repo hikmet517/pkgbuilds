@@ -23,8 +23,8 @@ build() {
 
 package() {
     install -dm755 "${pkgdir}/usr/share/info/"
-    install -m644 "${srcdir}/c-intro-and-ref/c" "${pkgdir}/usr/share/info/"
-    install -m644 "${srcdir}/c-intro-and-ref/c-1" "${pkgdir}/usr/share/info/"
-    install -m644 "${srcdir}/c-intro-and-ref/c-2" "${pkgdir}/usr/share/info/"
-    install -m644 "${srcdir}/c-intro-and-ref/c-3" "${pkgdir}/usr/share/info/"
+    install -m644 "${srcdir}/c-intro-and-ref/c.info" "${pkgdir}/usr/share/info/"
+    install -m644 "${srcdir}/c-intro-and-ref/c.info-1" "${pkgdir}/usr/share/info/"
+    install -m644 "${srcdir}/c-intro-and-ref/c.info-2" "${pkgdir}/usr/share/info/"
+    install -m644 "${srcdir}/c-intro-and-ref/c.info-3" "${pkgdir}/usr/share/info/"
 }
