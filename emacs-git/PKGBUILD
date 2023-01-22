@@ -32,19 +32,21 @@ GOLD=             # Use the gold linker.
 
 LTO=              # Enable link-time optimization. Still experimental.
 
-JIT="YES"         # Enable native just-in-time compilation. libgccjit is in AUR.
-                  # This compiles only performance critical elisp files.
+JIT="YES"         # Enable native just-in-time compilation with libgccjit available
+                  # in core. This compiles only performance critical elisp files.
                   #
                   # To compile all site-lisp on demand (repos/AUR packages,
                   # ELPA, MELPA, whatever), add
                   #    (setq native-comp-deferred-compilation t)
                   # to your .emacs file.
-                  # 
-                  # And to keep the eln cache clean add 
+                  #
+                  # And to keep the eln cache clean add
                   #    (setq native-compile-prune-cache t)
                   # to delete old versions.
 
-AOT="YES"         # Compile all elisp files.
+AOT="YES"         # Compile all elisp files provided by upstream.
+
+TRAMPOLINES=      # Compile jitted elisp files with trampolines.
 
 CLI=              # CLI only binary.
 
@@ -52,8 +54,10 @@ GPM=              # Mouse support in Linux console using gpmd.
 
 NOTKIT=           # Use no toolkit widgets. Like B&W Twm (001d sk00l).
                   # Bitmap fonts only, 1337!
-               
-PGTK=             # Use native GTK3 build. Supports Wayland, yay!
+
+PGTK=             # Use native GTK3 build. Supports Wayland, yay! Still
+                  # has some problems if running under Xorg. Remember,
+                  # this is my personal build file!
 
 GTK3="YES"        # GTK3 old windowing interface.
 
@@ -70,17 +74,21 @@ XI2="YES"         # Use Xinput2 support.
 
 ALSA=             # Linux sound support.
 
-NOCAIRO=          # Disable here. 
-               
+NOCAIRO=          # Disable here.
+
 XWIDGETS=         # Use GTK+ widgets pulled from webkit2gtk. Usable.
 
 SITTER="YES"      # Use tree-sitter incremental language parsing.
-               
+
+NOSQLITE3=        # Disable sqlite3 support.
+
 DOCS_HTML=        # Generate and install html documentation.
-               
-DOCS_PDF=         # Generate and install pdf documentation.
-               
-NOGZ="YES"        # Don't compress .el files.
+
+DOCS_PDF=         # Generate and install pdf documentation. You need
+                  # a TeX installation. I'm partial to upstream TeXLive.
+
+NOGZ="YES"        # Don't compress .el files. (Gain is neglible, IMHO)
+
 ################################################################################
 
 ################################################################################
@@ -89,7 +97,7 @@ if [[ $CLI == "YES" ]] ; then
 else
   pkgname="emacs-git"
 fi
-pkgver=30.0.50.164377
+pkgver=30.0.50.164426
 pkgrel=1
 pkgdesc="GNU Emacs. Development master branch."
 arch=('x86_64')
@@ -197,6 +205,16 @@ if [[ $SITTER == "YES" ]]; then
   fi
 fi
 
+if [[ $NOSQLITE3 == "YES" ]]; then
+  true
+else
+  if [[ $CLI == "YES" ]]; then
+    depends_nox+=( 'sqlite3' );
+  else
+    depends+=( 'sqlite3' );
+  fi
+fi
+
 if [[ $GPM == "YES" ]]; then
   if [[ $CLI == "YES" ]]; then
     depends_nox+=( 'gpm' );
@@ -269,7 +287,15 @@ if [[ $LTO == "YES" ]]; then
 fi
 
 if [[ $JIT == "YES" ]]; then
-  _conf+=( '--with-native-compilation' );
+  _conf+=( '--with-native-compilation=yes' );
+fi
+
+if [[ $JIT == "YES" ]] && [[ $AOT == "YES" ]]; then
+  _conf+=( '--with-native-compilation=aot' );
+fi
+
+if [[ ! $JIT == "YES" ]] && [[ ! $AOT == "YES" ]]; then
+  _conf+=( '--with-native-compilation=no' );
 fi
 
 if [[ $XI2 == "YES" ]]; then
@@ -310,6 +336,10 @@ if [[ $SITTER == "YES" ]]; then
   _conf+=( '--with-tree-sitter' );
 fi
 
+if [[ $NOSQLITE3 == "YES" ]]; then
+  _conf+=( '---without-sqlite3' );
+fi
+
 if [[ $GPM == "YES" ]]; then
     true
 else
@@ -338,16 +368,16 @@ _conf+=('--program-transform-name=s/\([ec]tags\)/\1.emacs/')
   # are reusing your src directory!
   #
 
-  if [[ $JIT=="YES" ]] && [[ $AOT == "YES" ]]; then
-    make NATIVE_FULL_AOT=1
-  else
-    make
-  fi
-
   # You may need to run this if 'loaddefs.el' files become corrupt.
   #cd "$srcdir/emacs-git/lisp"
   #make autoloads
   #cd ../build
+
+  if [[ $TRAMPOLINES == "YES" ]] && [[ $JIT == "YES" ]] ; then
+    make trampolines;
+  else
+    make
+  fi
 
   # Optional documentation formats.
   if [[ $DOCS_HTML == "YES" ]]; then
@@ -363,7 +393,7 @@ package() {
   cd "$srcdir/emacs-git/build"
 
   make DESTDIR="$pkgdir/" install
-  
+
   #if [[ ! $CLI == "YES" ]]; then
 
   # Install optional documentation formats

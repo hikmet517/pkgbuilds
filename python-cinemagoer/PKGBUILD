@@ -1,0 +1,38 @@
+# Maintainer: David Runge <dvzrv@archlinux.org>
+
+_name=cinemagoer
+pkgname=python-cinemagoer
+pkgver=2022.12.27
+pkgrel=4
+pkgdesc="Cinemagoer (previously known as IMDbPY) is a Python package for retrieving and managing the data of the IMDb movie database about movies and people"
+url="https://cinemagoer.github.io/"
+arch=('any')
+license=('GPL2')
+depends=('python-lxml' 'python-sqlalchemy')
+makedepends=('python-setuptools')
+checkdepends=('python-pytest')
+source=("https://files.pythonhosted.org/packages/source/${_name::1}/${_name}/${_name}-${pkgver}.tar.gz")
+b2sums=('SKIP')
+
+prepare() {
+  mv -v "${_name}-${pkgver}" "${pkgname}-${pkgver}"
+}
+
+build() {
+  cd "${pkgname}-${pkgver}"
+  python setup.py build
+}
+
+# # flaky tests are flaky: https://github.com/alberanid/imdbpy/issues/240
+# check() {
+#   cd "${pkgname}-${pkgver}"
+#   export PYTHONPATH="build:${PYTHONPATH}"
+#   pytest -v
+# }
+
+package() {
+  cd "${pkgname}-${pkgver}"
+  python setup.py install --optimize=1 --root="${pkgdir}/"
+  install -vDm 644 README.rst -t "${pkgdir}/usr/share/doc/${pkgname}/"
+}
+# vim:set ts=2 sw=2 et:
