@@ -1,0 +1,40 @@
+# Maintainer: Felix Yan <felixonmars@archlinux.org>
+# Contributor: Andrea Scarpino <andrea@archlinux.org>
+# Contributor: Pierre Schmitz <pierre@archlinux.de>
+
+pkgname_=cmake
+pkgname=cmake-infodocs
+pkgver=3.25.2
+pkgrel=1
+pkgdesc='A cross-platform open-source make system'
+arch=('x86_64')
+url="https://www.cmake.org/"
+options=('!zipman')
+license=('custom')
+makedepends=('python-sphinx' 'texinfo')
+source=("https://www.cmake.org/files/v${pkgver%.*}/${pkgname_}-${pkgver}.tar.gz")
+sha512sums=('20146d06a1722c36249192944a58e4780aad334d2bc5ce2a3d8c4f24656630c5b71ca0ae7ed53587e3d46f488bd773452fa60c3fc7045fe54db2dbc6ffd86390')
+
+build() {
+  cd ${pkgname_}-${pkgver}
+  cd Utilities/Sphinx
+  sed "s|@conf_docs@|${srcdir}/${pkgname_}-${pkgver}/Help|g" conf.py.in > conf.py
+  sed -i "s|@conf_path@|${srcdir}/${pkgname_}-${pkgver}/Utilities/Sphinx|g" conf.py
+  sed -i "s|@conf_version@|${pkgver}|g" conf.py
+  sed -i "s|@conf_release@|${pkgver}|g" conf.py
+  copyright=$(grep -E '^Copyright (2000-20[0-9][0-9] Kitware.*)' "${srcdir}/${pkgname_}-${pkgver}/Copyright.txt")
+  sed -i "s|@conf_copyright@|${copyright}|g" conf.py
+  sed -i "s|@conf_baseurl@|https://cmake.org/cmake/help/latest|g" conf.py
+  sphinx-build -c "${PWD}" -b texinfo "${srcdir}/${pkgname_}-${pkgver}/Help" "${PWD}/texinfo"
+  makeinfo --no-split -o "${PWD}/texinfo/cmake.info" "${PWD}/texinfo/cmake.texi"
+  gzip -f "${PWD}/texinfo/cmake.info"
+}
+
+package() {
+    install -dm755 "${pkgdir}/usr/share/info/"
+    install -m644 "${srcdir}/${pkgname_}-${pkgver}/Utilities/Sphinx/texinfo/cmake.info.gz" \
+            "${pkgdir}/usr/share/info/"
+    install -dm755 "${pkgdir}/usr/share/info/cmake-figures/"
+    install -m644 "${srcdir}/${pkgname_}-${pkgver}/Utilities/Sphinx/texinfo/cmake-figures/"* \
+            "${pkgdir}/usr/share/info/cmake-figures/"
+}
