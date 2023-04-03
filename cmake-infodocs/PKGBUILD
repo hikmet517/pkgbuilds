@@ -4,7 +4,7 @@
 
 pkgname_=cmake
 pkgname=cmake-infodocs
-pkgver=3.25.2
+pkgver=3.26.2
 pkgrel=1
 pkgdesc='A cross-platform open-source make system'
 arch=('x86_64')
@@ -13,7 +13,11 @@ options=('!zipman')
 license=('custom')
 makedepends=('python-sphinx' 'texinfo')
 source=("https://www.cmake.org/files/v${pkgver%.*}/${pkgname_}-${pkgver}.tar.gz")
-sha512sums=('20146d06a1722c36249192944a58e4780aad334d2bc5ce2a3d8c4f24656630c5b71ca0ae7ed53587e3d46f488bd773452fa60c3fc7045fe54db2dbc6ffd86390')
+sha512sums=('SKIP')
+
+pkgver() {
+    cmake --version | head -n 1 | sed 's|.* ||g'
+}
 
 build() {
   cd ${pkgname_}-${pkgver}

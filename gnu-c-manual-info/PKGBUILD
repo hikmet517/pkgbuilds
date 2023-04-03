@@ -7,7 +7,7 @@ url="https://www.gnu.org/software/gnu-c-manual/"
 license=('GPL')
 makedepends=('texinfo')
 source=("https://ftp.gnu.org/gnu/gnu-c-manual/gnu-c-manual-${pkgver}.tar.gz")
-sha256sums=(SKIP)
+sha256sums=('SKIP')
 
 build() {
     cd "${srcdir}/gnu-c-manual-${pkgver}"

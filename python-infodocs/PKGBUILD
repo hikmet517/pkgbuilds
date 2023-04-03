@@ -1,5 +1,5 @@
 pkgname=python-infodocs
-pkgver=3.10.9
+pkgver=3.10.10
 pkgrel=1
 pkgdesc="Info documentation for python"
 arch=('any')
@@ -9,6 +9,11 @@ license=('GPL')
 makedepends=('python-sphinx' 'texinfo')
 source=("https://www.python.org/ftp/python/${pkgver}/Python-${pkgver}.tar.xz")
 sha256sums=(SKIP)
+
+pkgver() {
+    python --version | sed 's|.* ||g'
+}
+
 
 build() {
     cd Python-${pkgver}/Doc

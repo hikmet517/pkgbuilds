@@ -10,6 +10,10 @@ makedepends=('python' 'xmlto' 'asciidoc' 'docbook2x')
 source=("https://www.kernel.org/pub/software/scm/git/git-$pkgver.tar.xz")
 sha256sums=('SKIP')
 
+pkgver() {
+    git --version | sed 's|.* ||g'
+}
+
 build() {
     cd "$srcdir/$_pkgname-$pkgver"
     make DOCBOOK2X_TEXI=db2x_docbook2texi DESTDIR="$pkgdir" prefix='/usr' info

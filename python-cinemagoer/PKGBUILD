@@ -35,4 +35,3 @@ package() {
   python setup.py install --optimize=1 --root="${pkgdir}/"
   install -vDm 644 README.rst -t "${pkgdir}/usr/share/doc/${pkgname}/"
 }
-# vim:set ts=2 sw=2 et:

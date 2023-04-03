@@ -2,7 +2,7 @@
 # https://aur.archlinux.org/packages/emacs-git
 # https://aur.archlinux.org/cgit/aur.git/snapshot/emacs-git.tar.gz
 
-# Maintainer: Pedro A. López-Valencia <https://aur.archlinux.org/users/vorbote>
+# Maintainer: Pedro A. López-Valencia <https://aur.archlinux.org/users/toropisco>
 
 ################################################################################
 # CAVEAT LECTOR: This PKGBUILD is highly opinionated. I give you
@@ -44,7 +44,7 @@ JIT="YES"         # Enable native just-in-time compilation with libgccjit availa
                   #    (setq native-compile-prune-cache t)
                   # to delete old versions.
 
-AOT="YES"         # Compile all elisp files provided by upstream.
+AOT=              # Compile all elisp files provided by upstream.
 
 TRAMPOLINES=      # Compile jitted elisp files with trampolines.
 
@@ -97,7 +97,7 @@ if [[ $CLI == "YES" ]] ; then
 else
   pkgname="emacs-git"
 fi
-pkgver=30.0.50.164779
+pkgver=30.0.50.165688
 pkgrel=1
 pkgdesc="GNU Emacs. Development master branch."
 arch=('x86_64')
@@ -107,7 +107,7 @@ depends_nox=('gnutls' 'libxml2' 'jansson')
 depends=("${depends_nox[@]}" 'harfbuzz')
 makedepends=('git')
 provides=('emacs')
-replaces=('emacs')
+conflicts=('emacs')
 source=("emacs-git::git+https://git.savannah.gnu.org/git/emacs.git")
 install=emacs-git.install
 b2sums=('SKIP')
