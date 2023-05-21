@@ -9,7 +9,7 @@
 #                enough rope to hang yourself, but by default it
 #                only enables the features I use.
 #
-#        TLDR: yaourt users, cry me a river.
+#        TLDR:   yaourt users, cry me a river.
 #
 #        Everyone else: do not update blindly this PKGBUILD. At least
 #        make sure to compare and understand the changes.
@@ -97,7 +97,7 @@ if [[ $CLI == "YES" ]] ; then
 else
   pkgname="emacs-git"
 fi
-pkgver=30.0.50.165688
+pkgver=30.0.50.166353
 pkgrel=1
 pkgdesc="GNU Emacs. Development master branch."
 arch=('x86_64')
