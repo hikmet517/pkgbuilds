@@ -1,0 +1,9 @@
+[Unit]
+Description=Universal AutoComplete service for the Linux desktop
+
+[Service]
+Type=simple
+ExecStart=/usr/bin/textsuggest-server
+
+[Install]
+WantedBy=default.target

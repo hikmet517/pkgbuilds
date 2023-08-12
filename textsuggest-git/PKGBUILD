@@ -13,8 +13,10 @@ license=('GPL3')
 depends=('python' 'dbus-c++' 'qt5-base' 'xdotool' 'xclip' 'libxcb')
 makedepends=('git' 'gcc' 'make' 'automake')
 provides=("$_gitname")
-source=("$_gitname::git+https://gitlab.com/bharadwaj-raju/TextSuggest.git" "num-limits.patch")
-md5sums=('SKIP' 'SKIP')
+source=("$_gitname::git+https://gitlab.com/bharadwaj-raju/TextSuggest.git"
+        "num-limits.patch"
+        "textsuggest.service")
+md5sums=('SKIP' 'SKIP' 'SKIP')
 
 pkgver() {
   cd "$srcdir/$_gitname"
@@ -22,29 +24,31 @@ pkgver() {
 }
 
 build() {
-	cd "$srcdir/$_gitname"
-	git apply ../num-limits.patch
-	sh build.sh
+    cd "$srcdir/$_gitname"
+    git apply ../num-limits.patch
+    sh build.sh
 }
 
 package() {
 
-	cd "$srcdir/$_gitname"
+    cd "$srcdir/$_gitname"
 
     install -d "$pkgdir/usr/share/textsuggest"
     install -d "$pkgdir/usr/bin"
 
-	cp -rf textsuggest/dictionaries/ "$pkgdir/usr/share/textsuggest/"
+    cp -rf textsuggest/dictionaries/ "$pkgdir/usr/share/textsuggest/"
 
-	install -d "$pkgdir/usr/share/textsuggest/processors"
-	cp bin/math_expression "$pkgdir/usr/share/textsuggest/processors"
-	cp bin/command "$pkgdir/usr/share/textsuggest/processors"
+    install -d "$pkgdir/usr/share/textsuggest/processors"
+    cp bin/math_expression "$pkgdir/usr/share/textsuggest/processors"
+    cp bin/command "$pkgdir/usr/share/textsuggest/processors"
 
-	install -D -m755 bin/textsuggest "$pkgdir/usr/bin/textsuggest"
-	install -D -m755 bin/textsuggest-server "$pkgdir/usr/bin/textsuggest-server"
+    install -D -m755 bin/textsuggest "$pkgdir/usr/bin/textsuggest"
+    install -D -m755 bin/textsuggest-server "$pkgdir/usr/bin/textsuggest-server"
 
-	chmod -R a+rwx "$pkgdir/usr/share/textsuggest/processors"
+    chmod -R a+rwx "$pkgdir/usr/share/textsuggest/processors"
 
-	install -D -m644 README.md "$pkgdir/usr/share/doc/textsuggest/README"
-	install -D -m644 LICENSE "$pkgdir/usr/share/licenses/textsuggest/COPYING"
+    install -D -m644 README.md "$pkgdir/usr/share/doc/textsuggest/README"
+    install -D -m644 LICENSE "$pkgdir/usr/share/licenses/textsuggest/COPYING"
+
+    install -D -m644 "$srcdir/textsuggest.service" "${pkgdir}/usr/lib/systemd/user/textsuggest.service"
 }

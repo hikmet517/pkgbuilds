@@ -1,0 +1,35 @@
+# Maintainer: Hikmet Altintas <hikmet1517@gmail.com>
+
+pkgname=clang-uml-git
+_gitname=${pkgname%-git*}
+pkgver=0.3.8.r19.gecf07b9
+pkgrel=1
+pkgdesc='Customizable automatic UML diagram generator for C++ based on Clang'
+arch=('any')
+url="https://github.com/bkryza/clang-uml"
+license=('GPL3')
+depends=('llvm' 'yaml-cpp')
+makedepends=('git' 'pkgconf' 'cmake')
+optdepends=('libdwarf' 'libunwind')
+provides=("$_gitname")
+source=("$_gitname::git+https://github.com/bkryza/clang-uml.git")
+md5sums=('SKIP')
+
+pkgver() {
+    cd "$srcdir/$_gitname"
+    git describe --long --tags --abbrev=7 | sed 's/\([^-]*-g\)/r\1/;s/-/./g'
+}
+
+build() {
+    cd "$srcdir/$_gitname"
+    sed -i 's|-Werror||g' src/CMakeLists.txt
+    cmake -DBUILD_TESTS=OFF \
+          -DCMAKE_INSTALL_PREFIX=/usr \
+          -S . -B build
+    cmake --build build
+}
+
+package() {
+    cd "$srcdir/$_gitname"
+    DESTDIR="$pkgdir" cmake --install build
+}
