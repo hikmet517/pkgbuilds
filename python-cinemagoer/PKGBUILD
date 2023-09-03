@@ -2,7 +2,7 @@
 
 _name=cinemagoer
 pkgname=python-cinemagoer
-pkgver=2022.12.27
+pkgver=2023.5.1
 pkgrel=4
 pkgdesc="Cinemagoer (previously known as IMDbPY) is a Python package for retrieving and managing the data of the IMDb movie database about movies and people"
 url="https://cinemagoer.github.io/"

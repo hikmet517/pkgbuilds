@@ -1,6 +1,6 @@
 _pkgname=git
 pkgname=git-infodocs
-pkgver=2.39.0
+pkgver=2.42.0
 pkgrel=1
 pkgdesc='info documentation for git'
 arch=('x86_64')

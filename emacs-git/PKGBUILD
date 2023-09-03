@@ -97,7 +97,7 @@ if [[ $CLI == "YES" ]] ; then
 else
   pkgname="emacs-git"
 fi
-pkgver=30.0.50.167230
+pkgver=30.0.50.168577
 pkgrel=1
 pkgdesc="GNU Emacs. Development master branch."
 arch=('x86_64')
@@ -266,7 +266,7 @@ build() {
     --with-modules
     --without-libotf
     --without-m17n-flt
-#     --without-toolkit-scroll-bars
+    # --without-toolkit-scroll-bars
 # Beware https://debbugs.gnu.org/cgi/bugreport.cgi?bug=25228
 # dconf and gconf break font settings you set in ~/.emacs.
 # If you insist you'll need to read that bug report in *full*.

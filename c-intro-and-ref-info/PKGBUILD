@@ -1,5 +1,5 @@
 pkgname=c-intro-and-ref-info
-pkgver=r62.47e5a23
+pkgver=r77.f458b9d
 pkgrel=1
 pkgdesc="GNU C Language Intro and Reference"
 url="https://savannah.gnu.org/git/?group=c-intro-and-ref"
