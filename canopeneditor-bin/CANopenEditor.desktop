@@ -1,0 +1,12 @@
+[Desktop Entry]
+Version=1.0
+Type=Application
+Name=CANopenEditor
+GenericName=CANopen Object Dictionary Editor
+Comment=CANopen Object Dictionary Editor
+Exec=mono /opt/CANopenEditor/EDSEditor.exe
+Icon=mono
+Terminal=false
+Categories=Development;Electronics;
+Keywords=embedded electronics;electronics;
+StartupWMClass=mono
