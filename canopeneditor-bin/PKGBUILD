@@ -8,10 +8,12 @@ url="https://github.com/CANopenNode/CANopenEditor"
 arch=('x86_64')
 license=('GPL')
 depends=("mono")
-makedepends=(mono-msbuild imagemagick nuget)
 source=("git+https://github.com/CANopenNode/CANopenEditor#branch=build"
-       "CANopenEditor.desktop")
-md5sums=("SKIP" "SKIP")
+        "CANopenEditor.desktop"
+        "EDSEditor.exe")
+md5sums=("SKIP"
+         "SKIP"
+         "SKIP")
 
 pkgver() {
     cd "$srcdir/$_pkgname"
@@ -24,4 +26,5 @@ package(){
     cp -r * "$pkgdir/opt/$_pkgname/"
     mkdir -p "$pkgdir/usr/share/applications/"
     cp "$srcdir/CANopenEditor.desktop" "$pkgdir/usr/share/applications/"
+    cp -f "$srcdir/EDSEditor.exe" "$pkgdir/opt/$_pkgname/"
 }
