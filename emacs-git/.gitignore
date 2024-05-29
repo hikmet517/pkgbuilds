@@ -1,7 +1,9 @@
 *~
 *.log
-pkg/
 src/
+pkg/
+*.pkg.tar
+*.pkg.tar.xz
 *.tar.*
 emacs-git
 *.local

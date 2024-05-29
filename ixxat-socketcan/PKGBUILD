@@ -1,0 +1,29 @@
+# Maintainer: Bruno Santos <brunomanuelsantos@tecnico.ulisboa.pt>
+# Patches taken from https://gitlab.com/bms-contrib/ixxat-socketcan
+
+pkgname=ixxat-socketcan
+pkgver=2.0.492
+pkgrel=1
+pkgdesc="SocketCAN driver for IXXAT USB-to-CAN v2"
+arch=('i686' 'x86_64')
+url="https://www.ixxat.com/products/products-industrial/pc-interfaces/pc-can-interfaces/socketcan"
+license=('GPL2')
+makedepends=(linux-headers)
+optdepends=('can-utils: Linux-CAN / SocketCAN user space applications')
+install=$pkgname.install
+source=('https://hmsnetworks.blob.core.windows.net/nlw/docs/default-source/products/ixxat/monitored/pc-interface-cards/socketcan-linux.gz?sfvrsn=3eb48d7_65&download=true')
+sha256sums=('SKIP')
+
+_extramodules=$(uname -r)/extramodules
+
+build() {
+    cd "${srcdir}"
+    tar xf ix_usb_can_$pkgver-REL.tgz
+    make
+}
+
+package() {
+    mkdir -p "${pkgdir}/usr/lib/modules/${_extramodules}"
+    install "${srcdir}/kernel/drivers/net/can/usb/ixxat_usb/ix_usb_can.ko" "${pkgdir}/usr/lib/modules/${_extramodules}"
+    echo ""
+}
