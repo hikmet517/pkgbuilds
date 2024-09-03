@@ -1,0 +1,23 @@
+pkgname='python-metallum'
+pkgver='1.1.0'
+pkgrel=1
+pkgdesc="Python API for www.metal-archives.com"
+url="https://github.com/lcharlick/python-metallum"
+depends=('python' 'python-requests' 'python-requests-cache' 'python-pyquery' 'python-dateutil')
+makedepends=('python-build' 'python-installer' 'python-wheel')
+license=('unknown')
+arch=('any')
+source=("https://files.pythonhosted.org/packages/source/${pkgname::1}/${pkgname//-/_}/${pkgname}-$pkgver.tar.gz")
+sha256sums=('47c49b50cdd6713dda977e8fb1864cb5ae9a546370a8aa1f2ea1d1269fe3b674')
+
+build() {
+    cd "${srcdir}/${pkgname}-${pkgver}"
+    sed -i '/from requests_cache.core import remove_expired_responses/d' metallum.py
+    sed -i 's|remove_expired_responses()|requests_cache.delete(expired=True)|g' metallum.py
+    python -m build --wheel --no-isolation
+}
+
+package() {
+    cd "${srcdir}/${pkgname}-${pkgver}"
+    python -m installer --destdir="${pkgdir}" dist/*.whl
+}
