@@ -1,9 +1,9 @@
 # Maintainer: David Runge <dvzrv@archlinux.org>
 
 _name=cinemagoer
-pkgname=python-cinemagoer
-pkgver=2023.5.1
-pkgrel=4
+pkgname=python-cinemagoer-git
+pkgver=2023.05.01.r40.g193ec42
+pkgrel=1
 pkgdesc="Cinemagoer (previously known as IMDbPY) is a Python package for retrieving and managing the data of the IMDb movie database about movies and people"
 url="https://cinemagoer.github.io/"
 arch=('any')
@@ -11,27 +11,21 @@ license=('GPL2')
 depends=('python-lxml' 'python-sqlalchemy')
 makedepends=('python-setuptools')
 checkdepends=('python-pytest')
-source=("https://files.pythonhosted.org/packages/source/${_name::1}/${_name}/${_name}-${pkgver}.tar.gz")
+source=("git+https://github.com/cinemagoer/cinemagoer.git")
 b2sums=('SKIP')
 
-prepare() {
-  mv -v "${_name}-${pkgver}" "${pkgname}-${pkgver}"
+pkgver() {
+  cd ${_name}
+  git describe --long --abbrev=7 | sed 's/\([^-]*-g\)/r\1/;s/-/./g'
 }
 
 build() {
-  cd "${pkgname}-${pkgver}"
+  cd "${srcdir}/${_name}"
   python setup.py build
 }
 
-# # flaky tests are flaky: https://github.com/alberanid/imdbpy/issues/240
-# check() {
-#   cd "${pkgname}-${pkgver}"
-#   export PYTHONPATH="build:${PYTHONPATH}"
-#   pytest -v
-# }
-
 package() {
-  cd "${pkgname}-${pkgver}"
+  cd "${srcdir}/${_name}"
   python setup.py install --optimize=1 --root="${pkgdir}/"
   install -vDm 644 README.rst -t "${pkgdir}/usr/share/doc/${pkgname}/"
 }
