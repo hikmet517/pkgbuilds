@@ -1,0 +1,48 @@
+From 9190216c77240ad27e6035e790c296799f478fcd Mon Sep 17 00:00:00 2001
+From: =?UTF-8?q?Bernd=20M=C3=BCller?= <github@muellerbernd.de>
+Date: Mon, 4 Sep 2023 18:59:46 +0200
+Subject: [PATCH 1/2] fix: progress.hpp deprecated error
+
+---
+ tools/rosbag/src/encrypt.cpp | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+diff --git a/tools/rosbag/src/encrypt.cpp b/tools/rosbag/src/encrypt.cpp
+index da4ece4c29..acd0eb4a1f 100644
+--- a/tools/rosbag/src/encrypt.cpp
++++ b/tools/rosbag/src/encrypt.cpp
+@@ -36,7 +36,7 @@
+ 
+ #include <boost/scoped_ptr.hpp>
+ #include <boost/program_options.hpp>
+-#include <boost/progress.hpp>
++#include <boost/timer/progress_display.hpp>
+ #include <boost/regex.hpp>
+ 
+ #include <ros/ros.h>
+
+From 39db3029fbf5ec4217202a22cdaf41e612a392a8 Mon Sep 17 00:00:00 2001
+From: =?UTF-8?q?Bernd=20M=C3=BCller?= <github@muellerbernd.de>
+Date: Mon, 4 Sep 2023 19:04:44 +0200
+Subject: [PATCH 2/2] fix: progress.hpp deprecated error
+
+---
+ tools/rosbag/src/encrypt.cpp | 4 ++--
+ 1 file changed, 2 insertions(+), 2 deletions(-)
+
+diff --git a/tools/rosbag/src/encrypt.cpp b/tools/rosbag/src/encrypt.cpp
+index acd0eb4a1f..b037957fc0 100644
+--- a/tools/rosbag/src/encrypt.cpp
++++ b/tools/rosbag/src/encrypt.cpp
+@@ -161,9 +161,9 @@ int encrypt(EncryptorOptions const& options)
+     outbag.setEncryptorPlugin(options.plugin, options.param);
+     outbag.setCompression(options.compression);
+     rosbag::View view(inbag);
+-    boost::scoped_ptr<boost::progress_display> progress;
++    boost::scoped_ptr<boost::timer::progress_display> progress;
+     if (!options.quiet)
+-        progress.reset(new boost::progress_display(view.size(), std::cout, "Progress:\n  ", "  ", "  "));
++        progress.reset(new boost::timer::progress_display(view.size(), std::cout, "Progress:\n  ", "  ", "  "));
+     for (rosbag::View::const_iterator it = view.begin(); it != view.end(); ++it)
+     {
+         outbag.write(it->getTopic(), it->getTime(), *it, it->getConnectionHeader());
