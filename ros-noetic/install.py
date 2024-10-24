@@ -48,41 +48,27 @@ def check_installed(pkg: str) -> bool:
     return p.returncode == 0
 
 
-# def get_missing_dependencies(pkg: str) -> list[str]:
-#     depends = get_dependencies(pkg)
-#     i = 0
-#     while i < len(depends):
-#         p = depends[i]
-#         if check_installed(p):
-#             depends.pop(i)
-#         else:
-#             for d in get_dependencies(p):
-#                 if d not in depends:
-#                     depends.append(d)
-#             i += 1
-#     return list(depends)
-
-
 def install(pkg: str, asdeps: bool=False) -> None:
     if check_installed(dep):
+        print_yellow(f'{pkg} IS ALREADY INSTALLED')
         return
 
     # try this custom ros packages first
     asdep = '--asdeps' if asdeps is True else ''
     if os.path.isdir(pkg):
-        print_yellow(f'INSTALLING {pkg} WITH CUSTOM PKGBUILDS')
+        print_yellow(f'INSTALLING "{pkg}" WITH CUSTOM PKGBUILDS')
         run(f"python install.py {asdep} {pkg}", shell=True)
         return
 
     # try pacman
     p = run(f"pacman -Ss '^{pkg}$'", shell=True)
     if p.returncode == 0:
-        print_yellow(f'INSTALLING {pkg} WITH PACMAN')
+        print_yellow(f'INSTALLING "{pkg}" WITH PACMAN')
         run(f"sudo pacman -S {asdep} {pkg}", shell=True)
         return
 
     # try aur
-    print_yellow(f'INSTALLING {pkg} WITH YAY')
+    print_yellow(f'INSTALLING "{pkg}" WITH YAY')
     run(f"yay --aur -S {asdep} {pkg}", shell=True)
     return
 
@@ -95,11 +81,15 @@ if __name__ == '__main__':
     parser.add_argument("package", help="package to install")
     args = parser.parse_args()
 
+    if check_installed(args.package):
+        print_yellow(f'{args.package} IS ALREADY INSTALLED')
+        exit(0)
+
     deps = get_dependencies(args.package)
     print_yellow('DEPS:', deps)
     for dep in deps:
+        print_yellow(f'\nINSTALLING "{dep}" AS A DEPENDENCY OF "{args.package}"')
         install(dep, True)
 
-    if check_installed(args.package) is False:
-        if os.path.isdir(args.package):
-            run("makepkg -i", shell=True, cwd=args.package)
+    if os.path.isdir(args.package):
+        run("makepkg -i", shell=True, cwd=args.package)

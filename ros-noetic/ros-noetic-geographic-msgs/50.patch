@@ -1,0 +1,54 @@
+From eb654c7ffdf23329f7567582b49b223818c70f95 Mon Sep 17 00:00:00 2001
+From: chriswsuarez <chriswsuarez@utexas.edu>
+Date: Wed, 26 Jan 2022 14:06:25 -0600
+Subject: [PATCH] Added GeoPoseWithCovariance and GeoPoseWithCovarianceStamped
+ messages
+
+---
+ geographic_msgs/CMakeLists.txt                       |  2 ++
+ geographic_msgs/msg/GeoPoseWithCovariance.msg        | 12 ++++++++++++
+ geographic_msgs/msg/GeoPoseWithCovarianceStamped.msg |  2 ++
+ 3 files changed, 16 insertions(+)
+ create mode 100644 geographic_msgs/msg/GeoPoseWithCovariance.msg
+ create mode 100644 geographic_msgs/msg/GeoPoseWithCovarianceStamped.msg
+
+diff --git a/geographic_msgs/CMakeLists.txt b/geographic_msgs/CMakeLists.txt
+index 9d9c3fe..d937147 100644
+--- a/geographic_msgs/CMakeLists.txt
++++ b/geographic_msgs/CMakeLists.txt
+@@ -19,7 +19,9 @@ add_message_files(
+   GeoPoint.msg
+   GeoPointStamped.msg
+   GeoPose.msg
++  GeoPoseWithCovariance.msg
+   GeoPoseStamped.msg
++  GeoPoseWithCovarianceStamped.msg
+   KeyValue.msg
+   MapFeature.msg
+   RouteNetwork.msg
+diff --git a/geographic_msgs/msg/GeoPoseWithCovariance.msg b/geographic_msgs/msg/GeoPoseWithCovariance.msg
+new file mode 100644
+index 0000000..6a35630
+--- /dev/null
++++ b/geographic_msgs/msg/GeoPoseWithCovariance.msg
+@@ -0,0 +1,12 @@
++# Geographic pose, using the WGS 84 reference ellipsoid.
++#
++# Orientation uses the East-North-Up (ENU) frame of reference.
++# (But, what about singularities at the poles?)
++
++GeoPose pose
++
++# Row-major representation of the 6x6 covariance matrix
++# The orientation parameters use a fixed-axis representation.
++# In order, the parameters are:
++# (Lat, Lon, Alt, rotation about E (East) axis, rotation about N (North) axis, rotation about U (Up) axis)
++float64[36] covariance
+diff --git a/geographic_msgs/msg/GeoPoseWithCovarianceStamped.msg b/geographic_msgs/msg/GeoPoseWithCovarianceStamped.msg
+new file mode 100644
+index 0000000..e0e2dc9
+--- /dev/null
++++ b/geographic_msgs/msg/GeoPoseWithCovarianceStamped.msg
+@@ -0,0 +1,2 @@
++Header header
++geographic_msgs/GeoPoseWithCovariance pose

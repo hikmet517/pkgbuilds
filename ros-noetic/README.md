@@ -21,6 +21,17 @@ yay -Ss ros-noetic | grep aur | sed -E 's|.+/([^ ]+) .*|\1|g' > ros-noetic-packa
 - install base
 ```fish
   ./install.py ros-noetic-ros-core
+  ./install.py ros-noetic-ros-control
+  ./install.py ros-noetic-roslint
+  ./install.py ros-noetic-serial
+  ./install.py ros-noetic-urdf
+  ./install.py ros-noetic-xacro
+  ./install.py ros-noetic-teleop-twist-joy
+  ./install.py ros-noetic-twist-mux
+  ./install.py ros-noetic-tf2-ros
+  ./install.py ros-noetic-librealsense2
+  ./install.py ros-noetic-magic-enum
+  ./install.py ros-noetic-robot-localization
 ```
 
 - to uninstall all ros-noetic-* packages:
