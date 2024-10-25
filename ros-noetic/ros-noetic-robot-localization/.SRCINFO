@@ -17,6 +17,7 @@ pkgbase = ros-noetic-robot-localization
 	makedepends = eigen
 	makedepends = geographiclib
 	makedepends = python-catkin_pkg
+	depends = ros-noetic-angles
 	depends = ros-noetic-cmake-modules
 	depends = ros-noetic-diagnostic-msgs
 	depends = ros-noetic-diagnostic-updater

@@ -1,6 +1,12 @@
+- DON'T FORGET TO UPDATE `.SRCINFO` after changing ~PKGBUILD~
+```fish
+  makepkg --printsrcinfo > .SRCINFO
+```
+
+
 - find `ros-noetic` packages
 ```fish
-yay -Ss ros-noetic | grep aur | sed -E 's|.+/([^ ]+) .*|\1|g' > ros-noetic-packages.txt
+  yay -Ss ros-noetic | grep aur | sed -E 's|.+/([^ ]+) .*|\1|g' > ros-noetic-packages.txt
 ```
 
 - fetch packages
@@ -24,18 +30,15 @@ yay -Ss ros-noetic | grep aur | sed -E 's|.+/([^ ]+) .*|\1|g' > ros-noetic-packa
   ./install.py ros-noetic-ros-control
   ./install.py ros-noetic-roslint
   ./install.py ros-noetic-serial
-  ./install.py ros-noetic-urdf
   ./install.py ros-noetic-xacro
   ./install.py ros-noetic-teleop-twist-joy
   ./install.py ros-noetic-twist-mux
   ./install.py ros-noetic-tf2-ros
-  ./install.py ros-noetic-librealsense2
-  ./install.py ros-noetic-magic-enum
   ./install.py ros-noetic-robot-localization
 ```
 
 - to uninstall all ros-noetic-* packages:
 
 ```fish
-  pacman -Qsq ros-noetic | pacman -R -
+  pacman -Qsq ros-noetic | sudo pacman -R -
 ```

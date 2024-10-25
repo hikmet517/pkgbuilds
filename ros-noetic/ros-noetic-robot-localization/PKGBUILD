@@ -22,6 +22,7 @@ makedepends=(
 )
 
 ros_depends=(
+  ros-noetic-angles
   ros-noetic-cmake-modules
   ros-noetic-diagnostic-msgs
   ros-noetic-diagnostic-updater

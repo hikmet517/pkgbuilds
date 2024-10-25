@@ -49,7 +49,7 @@ def check_installed(pkg: str) -> bool:
 
 
 def install(pkg: str, asdeps: bool=False) -> None:
-    if check_installed(dep):
+    if check_installed(pkg):
         print_yellow(f'{pkg} IS ALREADY INSTALLED')
         return
 
@@ -85,11 +85,14 @@ if __name__ == '__main__':
         print_yellow(f'{args.package} IS ALREADY INSTALLED')
         exit(0)
 
+    if os.path.isdir(args.package) is False:
+        print_red(f'CANNOT FIND PACKAGE "{args.package}"')
+        exit(1)
+
     deps = get_dependencies(args.package)
     print_yellow('DEPS:', deps)
     for dep in deps:
         print_yellow(f'\nINSTALLING "{dep}" AS A DEPENDENCY OF "{args.package}"')
         install(dep, True)
 
-    if os.path.isdir(args.package):
-        run("makepkg -i", shell=True, cwd=args.package)
+    run("makepkg -i", shell=True, cwd=args.package)
