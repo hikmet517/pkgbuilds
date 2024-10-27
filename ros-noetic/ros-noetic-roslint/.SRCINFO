@@ -12,4 +12,3 @@ pkgbase = ros-noetic-roslint
 	sha256sums = 3cd2d250944a6dbee6b8326f07be083e85cbd32ca882cbf0e9360ec0cfdd1883
 
 pkgname = ros-noetic-roslint
-

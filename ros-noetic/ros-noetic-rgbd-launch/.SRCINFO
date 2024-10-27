@@ -20,4 +20,3 @@ pkgbase = ros-noetic-rgbd-launch
 	sha256sums = 2e4bebe8e9f2d9e23f6e0678f6e0f594cd3616f3db0724075bde7219637e6baa
 
 pkgname = ros-noetic-rgbd-launch
-

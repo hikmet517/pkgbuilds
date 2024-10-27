@@ -24,4 +24,3 @@ pkgbase = ros-noetic-object-recognition-msgs
 	sha256sums = 7377cb764799d30fd2812d0ef1ff52e5f5c5479bced087c45ef478195f941f16
 
 pkgname = ros-noetic-object-recognition-msgs
-

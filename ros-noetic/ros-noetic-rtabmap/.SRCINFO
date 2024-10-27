@@ -1,7 +1,7 @@
 pkgbase = ros-noetic-rtabmap
 	pkgdesc = ROS - RTAB-Maps standalone library.
 	pkgver = 0.20.0
-	pkgrel = 2
+	pkgrel = 1
 	url = http://introlab.github.io/rtabmap
 	arch = any
 	license = BSD
@@ -23,7 +23,6 @@ pkgbase = ros-noetic-rtabmap
 	depends = zlib
 	depends = pcl
 	source = ros-noetic-rtabmap-0.20.0-1.tar.gz::https://github.com/introlab/rtabmap-release/archive/release/noetic/rtabmap/0.20.0-1.tar.gz
-	sha256sums = c640fb6039912f68dc405143b6ef79e472b10575d498e3da04ac977891593d4a
+	sha256sums = 7c66dc9f823e6cbde9897aabe847ed49a13fbd86286a9c459d7e3b8cc6d8d119
 
 pkgname = ros-noetic-rtabmap
-

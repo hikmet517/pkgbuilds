@@ -20,4 +20,3 @@ pkgbase = ros-noetic-rqt-publisher
 	sha256sums = d2e8a127d6ca0cc5929b62bf333195c4717a49112a133bbc2d9040d242ce23c2
 
 pkgname = ros-noetic-rqt-publisher
-

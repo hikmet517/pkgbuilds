@@ -19,4 +19,3 @@ pkgbase = ros-noetic-rqt-web
 	sha256sums = 33305fe829b77ad8ce947787e4e8949c3d386b390469383fb55a732709635b5b
 
 pkgname = ros-noetic-rqt-web
-

@@ -39,4 +39,3 @@ pkgbase = ros-noetic-viso2-ros
 	sha256sums = SKIP
 
 pkgname = ros-noetic-viso2-ros
-

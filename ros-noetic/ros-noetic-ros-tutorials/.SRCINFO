@@ -19,4 +19,3 @@ pkgbase = ros-noetic-ros-tutorials
 	sha256sums = b1071896e92a7060c14e7a1ed71bb4c7613049f4021992b50002574ba70b3d0f
 
 pkgname = ros-noetic-ros-tutorials
-

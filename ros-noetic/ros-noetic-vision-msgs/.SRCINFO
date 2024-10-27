@@ -23,4 +23,3 @@ pkgbase = ros-noetic-vision-msgs
 	sha256sums = c50d20dcf010ab02c6c167e58d0f4fc23230d9a90ec774219f6baf7d50597ad9
 
 pkgname = ros-noetic-vision-msgs
-

@@ -20,4 +20,3 @@ pkgbase = ros-noetic-octomap-ros
 	sha256sums = 188d1623eb02b777f1873d1a69791f20989a2f34dcbd0e9a205399faa5ab7cb2
 
 pkgname = ros-noetic-octomap-ros
-

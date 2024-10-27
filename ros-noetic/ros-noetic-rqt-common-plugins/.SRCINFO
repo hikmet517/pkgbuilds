@@ -33,4 +33,3 @@ pkgbase = ros-noetic-rqt-common-plugins
 	sha256sums = 8e60424081e7e278b7f9bba214bc4cda0d86bee1a142556153946acf9437b391
 
 pkgname = ros-noetic-rqt-common-plugins
-

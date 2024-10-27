@@ -22,4 +22,3 @@ pkgbase = ros-noetic-geometry2
 	sha256sums = 0b5d461c71d6dc1dbdb99a2ba39e1515194cd451c2e53d53caadb3ecea13367a
 
 pkgname = ros-noetic-geometry2
-

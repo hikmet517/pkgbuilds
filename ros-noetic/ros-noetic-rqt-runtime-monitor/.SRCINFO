@@ -19,4 +19,3 @@ pkgbase = ros-noetic-rqt-runtime-monitor
 	sha256sums = f1535345853d5e473c64c5d8e6c480621a99ec4ed58f0ed6a80d3845a2f8ad8a
 
 pkgname = ros-noetic-rqt-runtime-monitor
-

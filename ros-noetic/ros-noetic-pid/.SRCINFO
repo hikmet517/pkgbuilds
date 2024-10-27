@@ -24,4 +24,3 @@ pkgbase = ros-noetic-pid
 	sha256sums = 4baac5e9ab0d98621a2820dcb7b76af518507666b7fc23ba7e117a8194366894
 
 pkgname = ros-noetic-pid
-

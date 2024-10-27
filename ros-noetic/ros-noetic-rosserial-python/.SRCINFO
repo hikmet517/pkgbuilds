@@ -16,4 +16,3 @@ pkgbase = ros-noetic-rosserial-python
 	sha256sums = 0e4dbb4d6e456c354ee04f552cc36b43d053dc3f5a8bbfccff7f8adf3ae48534
 
 pkgname = ros-noetic-rosserial-python
-

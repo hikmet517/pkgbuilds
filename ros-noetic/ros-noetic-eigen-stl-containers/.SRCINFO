@@ -15,4 +15,3 @@ pkgbase = ros-noetic-eigen-stl-containers
 	sha256sums = cf1bcd3253aff0eb032f6d74b9b3c322c99f75ee66bd7034daee8bb2d2a422fc
 
 pkgname = ros-noetic-eigen-stl-containers
-

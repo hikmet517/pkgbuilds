@@ -2,7 +2,7 @@ pkgdesc="ROS - Underlying data libraries for roscpp messages."
 url='https://wiki.ros.org/roscpp_core'
 
 pkgname='ros-noetic-roscpp-core'
-pkgver='0.7.2'
+pkgver='0.7.3'
 arch=('i686' 'x86_64' 'aarch64' 'armv7h' 'armv6h')
 pkgrel=1
 license=('BSD')
@@ -30,7 +30,7 @@ depends=(
 
 _dir="roscpp_core-${pkgver}/roscpp_core"
 source=("${pkgname}-${pkgver}.tar.gz"::"https://github.com/ros/roscpp_core/archive/${pkgver}.tar.gz")
-sha256sums=('a2aa77814ed97b48995c872a405c51f6b0f1ab9d40e38ece483852bbd273ad7b')
+sha256sums=('9ada9ab00f1c28ef39069f8bb8642a33f127d6c5c49bc3d9057cadbd8d7c172e')
 
 build() {
 	# Use ROS environment variables.

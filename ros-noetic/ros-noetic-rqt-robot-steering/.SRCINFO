@@ -18,4 +18,3 @@ pkgbase = ros-noetic-rqt-robot-steering
 	sha256sums = ffcf6ffe64c898cbcf9245caf3f1312700194109a0142c57c00972370d18129d
 
 pkgname = ros-noetic-rqt-robot-steering
-

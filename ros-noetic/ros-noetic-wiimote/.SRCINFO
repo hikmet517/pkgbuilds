@@ -37,4 +37,3 @@ pkgbase = ros-noetic-wiimote
 	sha256sums = bfe0633623f4dc917524198aaea10b1c4603881e736dafb7b652f1af60922ad7
 
 pkgname = ros-noetic-wiimote
-

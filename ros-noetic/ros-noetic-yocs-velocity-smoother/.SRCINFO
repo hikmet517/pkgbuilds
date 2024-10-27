@@ -31,4 +31,3 @@ pkgbase = ros-noetic-yocs-velocity-smoother
 	sha256sums = cb81a2590558b7513f28ef8f9c9571ba9eeb1cae03d2db4c52b0509a70804001
 
 pkgname = ros-noetic-yocs-velocity-smoother
-

@@ -19,4 +19,3 @@ pkgbase = ros-noetic-rqt-logger-level
 	sha256sums = 4b768cb8048bcdd86b4fe93d8249652d3275dd62e45f32155ef5c136336f55a4
 
 pkgname = ros-noetic-rqt-logger-level
-

@@ -14,4 +14,3 @@ pkgbase = ros-noetic-geneus
 	sha256sums = 1a5b418d217c35c67db7f779642863f81637f9d6a396f491fee24b8074555f89
 
 pkgname = ros-noetic-geneus
-

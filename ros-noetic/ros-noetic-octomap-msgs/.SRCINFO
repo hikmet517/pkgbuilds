@@ -18,4 +18,3 @@ pkgbase = ros-noetic-octomap-msgs
 	sha256sums = ead6be1199e0d5cf44765e3172e156394602817aad21ca59c22d7a4f678639e4
 
 pkgname = ros-noetic-octomap-msgs
-

@@ -21,4 +21,3 @@ pkgbase = ros-noetic-rqt-robot-plugins
 	sha256sums = ed5e2d9fd1a54736ffd311b7e82699abeb9058a4e205b5e0f2c7671e69c41d7a
 
 pkgname = ros-noetic-rqt-robot-plugins
-

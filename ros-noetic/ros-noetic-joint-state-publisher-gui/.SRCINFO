@@ -15,4 +15,3 @@ pkgbase = ros-noetic-joint-state-publisher-gui
 	sha256sums = 3306a14bc2eac06d6faecc458766c9fc654c9fde062a5e676479772aab3c39cd
 
 pkgname = ros-noetic-joint-state-publisher-gui
-

@@ -29,4 +29,3 @@ pkgbase = ros-noetic-amcl
 	sha256sums = 50e1fb4a0beb190202e9730180464b76b3a481cae2665e0f1944eb908929148e
 
 pkgname = ros-noetic-amcl
-

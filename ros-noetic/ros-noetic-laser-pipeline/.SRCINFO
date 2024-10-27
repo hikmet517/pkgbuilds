@@ -15,4 +15,3 @@ pkgbase = ros-noetic-laser-pipeline
 	sha256sums = 4016fac551a4e60166aa152412212e0091937cd8b34f39e1696c405a8a2c11bd
 
 pkgname = ros-noetic-laser-pipeline
-

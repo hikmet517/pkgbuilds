@@ -31,4 +31,3 @@ pkgbase = ros-noetic-pointcloud-to-laserscan
 	sha256sums = ed50811e88be0e60a287eef1973077f74ce16230a73a5f04064c56715f02efc7
 
 pkgname = ros-noetic-pointcloud-to-laserscan
-

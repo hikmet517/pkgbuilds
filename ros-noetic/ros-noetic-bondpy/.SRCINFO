@@ -18,4 +18,3 @@ pkgbase = ros-noetic-bondpy
 	sha256sums = 33ec23816b57630c449b4a629504bd0112eeef5cee15652b3759ab11088a1e81
 
 pkgname = ros-noetic-bondpy
-

@@ -14,4 +14,3 @@ pkgbase = ros-noetic-convex-decomposition
 	sha256sums = 01621bace11c1929a2ae252a37763fbe7f56d0cfb651105e992505b96d9fdd4a
 
 pkgname = ros-noetic-convex-decomposition
-

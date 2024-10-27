@@ -23,4 +23,3 @@ pkgbase = ros-noetic-rqt-pose-view
 	sha256sums = 44abf89dbde2c52cbe8feb11cc58e94439b31dd09be85989eee2cf38e91eab1c
 
 pkgname = ros-noetic-rqt-pose-view
-

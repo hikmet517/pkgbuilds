@@ -14,4 +14,3 @@ pkgbase = ros-noetic-urdf-parser-plugin
 	sha256sums = 6643846ea63504463ec0f2c5ba4c73d965455b5ecc7aed81b860b8b4c8fa7133
 
 pkgname = ros-noetic-urdf-parser-plugin
-

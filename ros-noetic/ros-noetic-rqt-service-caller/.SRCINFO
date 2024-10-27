@@ -17,4 +17,3 @@ pkgbase = ros-noetic-rqt-service-caller
 	sha256sums = 107e246c999d473c04f4516cf0f0d3c3d62a37147a4f050fd7b7269ae641f797
 
 pkgname = ros-noetic-rqt-service-caller
-

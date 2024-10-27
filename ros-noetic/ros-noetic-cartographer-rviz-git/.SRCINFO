@@ -40,4 +40,3 @@ pkgbase = ros-noetic-cartographer-rviz-git
 	sha256sums = 7e706acef5e7029a50acee352221a035605ecc51b81d32f795f9c1c9be646556
 
 pkgname = ros-noetic-cartographer-rviz-git
-

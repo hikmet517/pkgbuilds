@@ -4,7 +4,7 @@ pkgdesc="ROS - Interface for enforcing joint limits."
 url='https://github.com/ros-controls/ros_control/wiki'
 
 pkgname='ros-noetic-joint-limits-interface'
-pkgver='0.19.5'
+pkgver='0.20.0'
 _pkgver_patch=0
 arch=('i686' 'x86_64' 'aarch64' 'armv7h' 'armv6h')
 pkgrel=1
@@ -34,7 +34,7 @@ depends=(${ros_depends[@]}
 # Tarball version (faster download)
 _dir="ros_control-${pkgver}/joint_limits_interface"
 source=("${pkgname}-${pkgver}.tar.gz"::"https://github.com/ros-controls/ros_control/archive/${pkgver}.tar.gz")
-sha256sums=('a9e031f7a4a448657f689971d8049351ec31776d15efac45c8c9b44b950f55b1')
+sha256sums=('28adcdf8e410bcee60415eebd8087f7b5c60af9833df9a75120e0250a7e459e8')
 
 build() {
   # Use ROS environment variables

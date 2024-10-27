@@ -19,4 +19,3 @@ pkgbase = ros-noetic-socketcan-interface
 	sha256sums = aa75077452abea1848405906c989eca2e539943c2d1cc1e6f1d72f8facc74390
 
 pkgname = ros-noetic-socketcan-interface
-

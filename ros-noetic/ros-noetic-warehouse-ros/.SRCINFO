@@ -29,4 +29,3 @@ pkgbase = ros-noetic-warehouse-ros
 	sha256sums = 11782f721259698c4bfcbe99957687c827b92850866b42fb931cf9d134c34a7e
 
 pkgname = ros-noetic-warehouse-ros
-

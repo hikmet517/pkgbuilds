@@ -24,4 +24,3 @@ pkgbase = ros-noetic-rqt-graph
 	sha256sums = 2b5f6440cb826362043a35ac561151033688560bfe1b84fb2dd2533424b017bc
 
 pkgname = ros-noetic-rqt-graph
-

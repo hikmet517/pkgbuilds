@@ -33,4 +33,3 @@ pkgbase = ros-noetic-rviz-visual-tools
 	sha256sums = cabd0c665a464e5e0027cbdece555d933a1f6f963fbc5b088f0c1b39fe817486
 
 pkgname = ros-noetic-rviz-visual-tools
-

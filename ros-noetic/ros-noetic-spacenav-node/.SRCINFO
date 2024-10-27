@@ -27,4 +27,3 @@ pkgbase = ros-noetic-spacenav-node
 	sha256sums = 37e82742674a5fd4cf9959051aeae3bb961da74f254f891909d10589266166ad
 
 pkgname = ros-noetic-spacenav-node
-

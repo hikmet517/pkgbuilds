@@ -21,4 +21,3 @@ pkgbase = ros-noetic-rqt-moveit
 	sha256sums = 8a18851215b6a13718b3d6d66a466282b5a85269156549aee95cf87c5f12b38f
 
 pkgname = ros-noetic-rqt-moveit
-

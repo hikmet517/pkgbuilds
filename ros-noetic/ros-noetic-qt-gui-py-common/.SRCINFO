@@ -14,4 +14,3 @@ pkgbase = ros-noetic-qt-gui-py-common
 	sha256sums = fbc5a7b0a4da43f80e9216845aec2e247fac0a63512053c03a9f89024d026aad
 
 pkgname = ros-noetic-qt-gui-py-common
-

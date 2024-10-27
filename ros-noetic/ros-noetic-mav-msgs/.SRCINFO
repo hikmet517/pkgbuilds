@@ -27,4 +27,3 @@ pkgbase = ros-noetic-mav-msgs
 	sha256sums = 5c24fd711d32a024d226707aca6e18ed31e5ebd01e5bfe725098d07619223459
 
 pkgname = ros-noetic-mav-msgs
-

@@ -26,4 +26,3 @@ pkgbase = ros-noetic-swri-console
 	sha256sums = da27e4f92247ce7016a4325ef7ffea0ed18fa6fe671ce0b7f17652778ce9481c
 
 pkgname = ros-noetic-swri-console
-

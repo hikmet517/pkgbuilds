@@ -20,4 +20,3 @@ pkgbase = ros-noetic-map-msgs
 	sha256sums = 897e2809fa07330f3b01fbd99163dbed5669eec89d4b7fd742d62cf57b690149
 
 pkgname = ros-noetic-map-msgs
-

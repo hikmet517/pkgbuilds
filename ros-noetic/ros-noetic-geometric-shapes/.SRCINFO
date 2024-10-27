@@ -39,4 +39,3 @@ pkgbase = ros-noetic-geometric-shapes
 	sha256sums = 542028d17daa1e307eb14e9f81c9a75bce64428d31c10ab4d977cdbc70bcea01
 
 pkgname = ros-noetic-geometric-shapes
-

@@ -12,4 +12,3 @@ pkgbase = ros-noetic-ros-environment
 	sha256sums = c0bc78d606e85a5456ce669f33638d8e8872deadb08a745a8ae79874f61f58e3
 
 pkgname = ros-noetic-ros-environment
-

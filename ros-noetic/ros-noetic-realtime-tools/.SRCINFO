@@ -21,4 +21,3 @@ pkgbase = ros-noetic-realtime-tools
 	sha256sums = 4f526e24ecb0f5e434bef443289da86f487ebacdd1076577f56cfde37a6900e7
 
 pkgname = ros-noetic-realtime-tools
-

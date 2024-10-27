@@ -12,4 +12,3 @@ pkgbase = ros-noetic-pr2-machine
 	sha256sums = 135c6947f7511bcb3644fa6c0cf5972c309516895737e83f8eeed2b2d069f009
 
 pkgname = ros-noetic-pr2-machine
-

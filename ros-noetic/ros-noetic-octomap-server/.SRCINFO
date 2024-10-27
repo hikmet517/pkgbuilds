@@ -44,4 +44,3 @@ pkgbase = ros-noetic-octomap-server
 	sha256sums = dda5b56259a80ab115f547df7a117140016587ec1fe45602845976a518b3c881
 
 pkgname = ros-noetic-octomap-server
-

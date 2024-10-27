@@ -2,7 +2,7 @@ pkgdesc="ROS - tf2_bullet."
 url='https://wiki.ros.org/tf2_bullet'
 
 pkgname='ros-noetic-tf2-bullet'
-pkgver='0.7.5'
+pkgver='0.7.7'
 arch=('any')
 pkgrel=1
 license=('BSD')
@@ -31,7 +31,7 @@ depends=(
 
 _dir="geometry2-${pkgver}/tf2_bullet"
 source=("${pkgname}-${pkgver}.tar.gz"::"https://github.com/ros/geometry2/archive/${pkgver}.tar.gz")
-sha256sums=('0b5d461c71d6dc1dbdb99a2ba39e1515194cd451c2e53d53caadb3ecea13367a')
+sha256sums=('edda09208a93761fd728e80d5acc487140fa6137f85fad124f82827128997f3c')
 
 build() {
     # Use ROS environment variables

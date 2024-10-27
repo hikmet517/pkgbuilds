@@ -14,4 +14,3 @@ pkgbase = ros-noetic-rviz-python-tutorial
 	sha256sums = e592005f3af058ed3fe6f2aeec2d64a6b861dc387b2f7c4d7e3cf1e165373de0
 
 pkgname = ros-noetic-rviz-python-tutorial
-

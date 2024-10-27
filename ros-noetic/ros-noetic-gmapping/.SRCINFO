@@ -28,4 +28,3 @@ pkgbase = ros-noetic-gmapping
 	sha256sums = 28429cf962b5ec2c49556aee73b7f87859c0421bc8c8056e3667e3a2b20591e2
 
 pkgname = ros-noetic-gmapping
-

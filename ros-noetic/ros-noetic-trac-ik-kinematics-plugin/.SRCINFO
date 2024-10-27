@@ -26,4 +26,3 @@ pkgbase = ros-noetic-trac-ik-kinematics-plugin
 	sha256sums = 67bdfb8dfcdf99c4ff5bd10de3c214527443a5c1ac54c99a0b5590d2692bf676
 
 pkgname = ros-noetic-trac-ik-kinematics-plugin
-

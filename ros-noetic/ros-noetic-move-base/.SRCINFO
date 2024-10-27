@@ -55,4 +55,3 @@ pkgbase = ros-noetic-move-base
 	sha256sums = d83201296e773e2789635fddf39ac18e9465219b18707e53bd2361de4762d205
 
 pkgname = ros-noetic-move-base
-

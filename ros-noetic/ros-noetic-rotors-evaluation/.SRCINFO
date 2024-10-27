@@ -17,4 +17,3 @@ pkgbase = ros-noetic-rotors-evaluation
 	sha256sums = 46e6be40ebd08ba41a4a532c1774228d240d11aa39ad82f9ab50e445dc4a6f20
 
 pkgname = ros-noetic-rotors-evaluation
-

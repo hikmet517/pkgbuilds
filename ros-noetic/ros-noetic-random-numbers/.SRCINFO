@@ -18,4 +18,3 @@ pkgbase = ros-noetic-random-numbers
 	sha256sums = da825a0c7a4e9de180d9d539aa78682c1d805b1e4c3ef16af0e6cb384f2134f5
 
 pkgname = ros-noetic-random-numbers
-

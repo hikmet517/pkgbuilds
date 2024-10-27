@@ -33,4 +33,3 @@ pkgbase = ros-noetic-laser-assembler
 	sha256sums = cf2e8649f6df73d63c5ff0a65dea8cf21ce3f644ce47c7955a165a94d3a1ded9
 
 pkgname = ros-noetic-laser-assembler
-

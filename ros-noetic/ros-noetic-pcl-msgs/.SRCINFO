@@ -18,4 +18,3 @@ pkgbase = ros-noetic-pcl-msgs
 	sha256sums = da607cfbdccf2a3a8a8e68be1fe6aee997e8bd52eddfac0644fd720c5ef76314
 
 pkgname = ros-noetic-pcl-msgs
-

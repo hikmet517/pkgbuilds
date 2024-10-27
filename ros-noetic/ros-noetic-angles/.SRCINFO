@@ -13,4 +13,3 @@ pkgbase = ros-noetic-angles
 	sha256sums = 0e2982e9e4759614702f18f5c25cb7a0a88d382f4a4fab845ca1587305db2fd6
 
 pkgname = ros-noetic-angles
-

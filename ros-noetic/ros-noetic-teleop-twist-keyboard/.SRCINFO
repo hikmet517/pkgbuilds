@@ -14,4 +14,3 @@ pkgbase = ros-noetic-teleop-twist-keyboard
 	sha256sums = 7c0c2c0ef2f47e52922beeac94c093b54677318397b4415ac78933aca5079b0c
 
 pkgname = ros-noetic-teleop-twist-keyboard
-

@@ -24,4 +24,3 @@ pkgbase = ros-noetic-interactive-markers
 	sha256sums = 16623384766c34173a886bfeef5b6c7bccd5625f879df214bff01aae8043cfc0
 
 pkgname = ros-noetic-interactive-markers
-

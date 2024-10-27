@@ -20,4 +20,3 @@ pkgbase = ros-noetic-rqt-launch
 	sha256sums = 13287eb9eeb85f98c45b41d99b70314f85a2765adba4281808d15e3098811571
 
 pkgname = ros-noetic-rqt-launch
-

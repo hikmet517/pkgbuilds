@@ -20,4 +20,3 @@ pkgbase = ros-noetic-rqt-console
 	sha256sums = d4ecc44d0774359ab0bea90d2fb0453f586b966ab1b8704e6a8450974c82fc35
 
 pkgname = ros-noetic-rqt-console
-

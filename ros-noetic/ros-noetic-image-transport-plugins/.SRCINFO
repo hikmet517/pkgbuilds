@@ -19,4 +19,3 @@ pkgbase = ros-noetic-image-transport-plugins
 	sha256sums = eed856edeb26c66c1e1730a8c8b26ea6dec03d2f9a3c6db0462767106f9e73d8
 
 pkgname = ros-noetic-image-transport-plugins
-

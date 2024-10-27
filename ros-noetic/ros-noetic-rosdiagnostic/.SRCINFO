@@ -14,4 +14,3 @@ pkgbase = ros-noetic-rosdiagnostic
 	sha256sums = 3b2d3bb7bb333b8685fa084e086c00a044803dac41ff58351161440931d23550
 
 pkgname = ros-noetic-rosdiagnostic
-

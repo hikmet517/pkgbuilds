@@ -16,4 +16,3 @@ pkgbase = ros-noetic-slime-ros
 	sha256sums = 14c8463b3c354a53659843c82af416a4ff6713747f04da98e8fc39de90c8ec6c
 
 pkgname = ros-noetic-slime-ros
-

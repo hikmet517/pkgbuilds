@@ -21,4 +21,3 @@ pkgbase = ros-noetic-rqt-nav-view
 	sha256sums = 93ee15ffdac90401e7b7ba1386f4b5a5ee7aa9c7e7b55227b7763dc21cf0a7cc
 
 pkgname = ros-noetic-rqt-nav-view
-

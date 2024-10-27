@@ -14,4 +14,3 @@ pkgbase = ros-noetic-gennodejs
 	sha256sums = 6380efc25d0c80e0372d1f57dea5e3bd3ab05b537f0477a702fd472965035478
 
 pkgname = ros-noetic-gennodejs
-

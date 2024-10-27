@@ -19,4 +19,3 @@ pkgbase = ros-noetic-tuw-msgs
 	sha256sums = b22f12be8014a8855cd179d228ae5312102da4b3d176979f66f13e258cc418b6
 
 pkgname = ros-noetic-tuw-msgs
-

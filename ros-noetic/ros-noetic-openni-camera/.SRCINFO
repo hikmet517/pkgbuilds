@@ -31,4 +31,3 @@ pkgbase = ros-noetic-openni-camera
 	sha256sums = 4dd0109628b5f8ed497ed11b35023ac82a9ecd3658469dc35b1a04f52ba14daf
 
 pkgname = ros-noetic-openni-camera
-

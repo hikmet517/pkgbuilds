@@ -37,4 +37,3 @@ pkgbase = ros-noetic-stage-ros
 	sha256sums = 21fbe64e3a5f639ce88a69b3ae15eea38a9e2dbeedfb7f9bed21f787706973fb
 
 pkgname = ros-noetic-stage-ros
-

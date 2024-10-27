@@ -32,6 +32,6 @@ pkgbase = ros-noetic-kinect2-viewer
 	source = ros-noetic-kinect2-viewer::git+https://github.com/code-iai/iai_kinect2.git
 	source = fix_cv3_to_4.patch
 	sha256sums = SKIP
+	sha256sums = 654d04bd5473d947c12d0330d35449ef1ac4544f34295ce7bbee8484d4a49a18
 
 pkgname = ros-noetic-kinect2-viewer
-

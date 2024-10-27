@@ -18,4 +18,3 @@ pkgbase = ros-noetic-tracetools
 	sha256sums = 3a2aa03551d6de84939260bb4e02b528bec53de81f0bebf44cc4f4610470eaff
 
 pkgname = ros-noetic-tracetools
-

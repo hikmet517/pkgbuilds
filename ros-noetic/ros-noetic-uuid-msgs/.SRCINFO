@@ -16,4 +16,3 @@ pkgbase = ros-noetic-uuid-msgs
 	sha256sums = e376df28058d69da4c3c5fce4ef5d3cc24518ed9b64a181055ff86a2fc11b832
 
 pkgname = ros-noetic-uuid-msgs
-

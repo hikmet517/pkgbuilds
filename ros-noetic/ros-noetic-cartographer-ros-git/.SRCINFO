@@ -67,4 +67,3 @@ pkgbase = ros-noetic-cartographer-ros-git
 	sha256sums = 18bafe6a7b7c0a894ce2055ace65925dedab29aab0183f56ba01cb8937013b86
 
 pkgname = ros-noetic-cartographer-ros-git
-

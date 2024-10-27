@@ -18,4 +18,3 @@ pkgbase = ros-noetic-genlisp
 	sha256sums = b756554e39368467bcb7d564de3f475373d264c3133538a708f60d0bf8543736
 
 pkgname = ros-noetic-genlisp
-

@@ -21,4 +21,3 @@ pkgbase = ros-noetic-rqt-msg
 	sha256sums = 77c1faf7969cbbe5b052e1cc04a95af2c102d899470ab3827e1f90974a1a1765
 
 pkgname = ros-noetic-rqt-msg
-

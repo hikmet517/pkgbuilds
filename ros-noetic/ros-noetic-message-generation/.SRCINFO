@@ -22,4 +22,3 @@ pkgbase = ros-noetic-message-generation
 	sha256sums = 90ab9649f594d5d007d735bd056f777e5f72bfb4f11f2b891fa5c5139f0a5e2f
 
 pkgname = ros-noetic-message-generation
-

@@ -19,4 +19,3 @@ pkgbase = ros-noetic-plotjuggler-msgs
 	sha256sums = 29956629259fe84f72cdb8b0072db17687dadaa292069ee83c0bedf436d0f5d8
 
 pkgname = ros-noetic-plotjuggler-msgs
-

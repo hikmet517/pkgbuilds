@@ -18,4 +18,3 @@ pkgbase = ros-noetic-ecl-type-traits
 	sha256sums = 69d503109878e3a2c4f5be611fc9609078714899cae15fbf7f58119fdbd61e37
 
 pkgname = ros-noetic-ecl-type-traits
-

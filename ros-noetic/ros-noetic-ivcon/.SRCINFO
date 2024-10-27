@@ -12,4 +12,3 @@ pkgbase = ros-noetic-ivcon
 	sha256sums = 55b50a0ea6886f031b1b84f3d670e409261821bf10e7ccd315c1c057533ff643
 
 pkgname = ros-noetic-ivcon
-

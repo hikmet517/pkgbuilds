@@ -21,4 +21,3 @@ pkgbase = ros-noetic-rosauth
 	sha256sums = afa1e29ed21b9481b622b2a72f314765ee90a4ecaabef3e8825227f92ff5675b
 
 pkgname = ros-noetic-rosauth
-

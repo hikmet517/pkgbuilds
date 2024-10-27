@@ -16,4 +16,3 @@ pkgbase = ros-noetic-joy-listener
 	sha256sums = fd0bb39a69302dae5ccfd565277209719a4199644fc8265a2ae7ccedd92c004a
 
 pkgname = ros-noetic-joy-listener
-

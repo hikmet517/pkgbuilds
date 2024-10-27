@@ -1,6 +1,6 @@
 pkgbase = ros-noetic-tf2-tools
 	pkgdesc = ROS - tf2_tools.
-	pkgver = 0.7.5
+	pkgver = 0.7.7
 	pkgrel = 1
 	url = https://wiki.ros.org/tf2_tools
 	arch = any
@@ -14,8 +14,7 @@ pkgbase = ros-noetic-tf2-tools
 	depends = ros-noetic-tf2-msgs
 	depends = ros-noetic-tf2
 	depends = ros-noetic-tf2-ros
-	source = ros-noetic-tf2-tools-0.7.5.tar.gz::https://github.com/ros/geometry2/archive/0.7.5.tar.gz
-	sha256sums = 0b5d461c71d6dc1dbdb99a2ba39e1515194cd451c2e53d53caadb3ecea13367a
+	source = ros-noetic-tf2-tools-0.7.7.tar.gz::https://github.com/ros/geometry2/archive/0.7.7.tar.gz
+	sha256sums = edda09208a93761fd728e80d5acc487140fa6137f85fad124f82827128997f3c
 
 pkgname = ros-noetic-tf2-tools
-

@@ -13,4 +13,3 @@ pkgbase = ros-noetic-webkit-dependency
 	sha256sums = 0ac7e895d1c1ae4342c6a140af4c0201355c2af6bfb09d1fc8ade146d617def4
 
 pkgname = ros-noetic-webkit-dependency
-

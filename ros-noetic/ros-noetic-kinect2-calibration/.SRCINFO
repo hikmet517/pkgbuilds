@@ -1,7 +1,7 @@
 pkgbase = ros-noetic-kinect2-calibration
 	pkgdesc = Calibration tool for Kinect One (Kinect v2) in ROS.
 	pkgver = 0.0.1
-	pkgrel = 2
+	pkgrel = 1
 	url = https://github.com/code-iai/iai_kinect2
 	arch = any
 	license = apache
@@ -29,6 +29,6 @@ pkgbase = ros-noetic-kinect2-calibration
 	source = ros-noetic-kinect2-calibration::git+https://github.com/code-iai/iai_kinect2.git
 	source = fix_cv3_to_4.patch
 	sha256sums = SKIP
+	sha256sums = ab71cef077731213a34059b29f3be3ced46c179b87fac17252f138473d2929ef
 
 pkgname = ros-noetic-kinect2-calibration
-

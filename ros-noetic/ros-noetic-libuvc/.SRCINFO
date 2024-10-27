@@ -14,4 +14,3 @@ pkgbase = ros-noetic-libuvc
 	sha256sums = 06a553e6d043735a10fff606d5f71a20661fc9b6be392b69a06c35b8aca8d3f6
 
 pkgname = ros-noetic-libuvc
-

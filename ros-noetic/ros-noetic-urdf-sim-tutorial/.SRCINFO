@@ -23,4 +23,3 @@ pkgbase = ros-noetic-urdf-sim-tutorial
 	sha256sums = 6f350a379fdfc2e30a11cabfa4cdf809afdd05e792e657546940e04122c42797
 
 pkgname = ros-noetic-urdf-sim-tutorial
-

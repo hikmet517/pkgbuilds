@@ -1,6 +1,6 @@
 pkgbase = ros-noetic-joint-limits-interface
 	pkgdesc = ROS - Interface for enforcing joint limits.
-	pkgver = 0.19.5
+	pkgver = 0.20.0
 	pkgrel = 1
 	url = https://github.com/ros-controls/ros_control/wiki
 	arch = i686
@@ -21,7 +21,7 @@ pkgbase = ros-noetic-joint-limits-interface
 	depends = ros-noetic-roscpp
 	depends = ros-noetic-hardware-interface
 	depends = urdfdom
-	source = ros-noetic-joint-limits-interface-0.19.5.tar.gz::https://github.com/ros-controls/ros_control/archive/0.19.5.tar.gz
-	sha256sums = a9e031f7a4a448657f689971d8049351ec31776d15efac45c8c9b44b950f55b1
+	source = ros-noetic-joint-limits-interface-0.20.0.tar.gz::https://github.com/ros-controls/ros_control/archive/0.20.0.tar.gz
+	sha256sums = 28adcdf8e410bcee60415eebd8087f7b5c60af9833df9a75120e0250a7e459e8
 
 pkgname = ros-noetic-joint-limits-interface

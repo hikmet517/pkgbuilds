@@ -17,4 +17,3 @@ pkgbase = ros-noetic-rqt-srv
 	sha256sums = 84ea8e4b8292f5d2236f761dd9ae485b8f0e82fc81c08904d7f53955766f1600
 
 pkgname = ros-noetic-rqt-srv
-

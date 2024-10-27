@@ -20,4 +20,3 @@ pkgbase = ros-noetic-onboard-sdk-ros
 	sha256sums = SKIP
 
 pkgname = ros-noetic-onboard-sdk-ros
-

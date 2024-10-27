@@ -13,4 +13,3 @@ pkgbase = ros-noetic-kinect2-registration
 	sha256sums = SKIP
 
 pkgname = ros-noetic-kinect2-registration
-

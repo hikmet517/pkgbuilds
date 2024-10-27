@@ -21,4 +21,3 @@ pkgbase = ros-noetic-message-runtime
 	sha256sums = c5f97145b5095389d2459c0e7d879c07f5878d0b7ec84b5c388abddfd52bf448
 
 pkgname = ros-noetic-message-runtime
-

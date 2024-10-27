@@ -1,6 +1,6 @@
 pkgbase = ros-noetic-nodelet
 	pkgdesc = ROS - The nodelet package is designed to provide a way to run multiple algorithms in the same process with zero copy transport between algorithms.
-	pkgver = 1.10.2
+	pkgver = 1.11.0
 	pkgrel = 1
 	url = https://wiki.ros.org/nodelet
 	arch = i686
@@ -30,7 +30,7 @@ pkgbase = ros-noetic-nodelet
 	depends = ros-noetic-pluginlib
 	depends = boost
 	depends = util-linux
-	source = ros-noetic-nodelet-1.10.2.tar.gz::https://github.com/ros/nodelet_core/archive/1.10.2.tar.gz
-	sha256sums = 9b49a06721ca23c76965937f1a5673cdb6250384d9bd89c1b0fdef5ecd2b83b2
+	source = ros-noetic-nodelet-1.11.0.tar.gz::https://github.com/ros/nodelet_core/archive/1.11.0.tar.gz
+	sha256sums = c5f4f17a2165f7201964c985019d41e7c4664307f6bc6ec70a48c97d4a6166f9
 
 pkgname = ros-noetic-nodelet

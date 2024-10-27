@@ -14,4 +14,3 @@ pkgbase = ros-noetic-ecl-build
 	sha256sums = 3c7f16efaae81db62dd482b35c60b25bfaa5fed52112347ecaf97a8d10b445f6
 
 pkgname = ros-noetic-ecl-build
-

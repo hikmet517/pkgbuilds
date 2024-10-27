@@ -27,4 +27,3 @@ pkgbase = ros-noetic-pluginlib
 	sha256sums = 879e434d09fdcca238868b4ba92eaca77234e4291947c41d25bc5b14bb54fa0e
 
 pkgname = ros-noetic-pluginlib
-

@@ -2,7 +2,7 @@ pkgdesc="ROS - cpp_common contains C++ code for doing things that are not necess
 url='https://wiki.ros.org/cpp_common'
 
 pkgname='ros-noetic-cpp-common'
-pkgver='0.7.2'
+pkgver='0.7.3'
 arch=('i686' 'x86_64' 'aarch64' 'armv7h' 'armv6h')
 pkgrel=1
 license=('BSD')
@@ -30,7 +30,7 @@ depends=(
 
 _dir="roscpp_core-${pkgver}/cpp_common"
 source=("${pkgname}-${pkgver}.tar.gz"::"https://github.com/ros/roscpp_core/archive/${pkgver}.tar.gz")
-sha256sums=('a2aa77814ed97b48995c872a405c51f6b0f1ab9d40e38ece483852bbd273ad7b')
+sha256sums=('9ada9ab00f1c28ef39069f8bb8642a33f127d6c5c49bc3d9057cadbd8d7c172e')
 
 build() {
 	# Use ROS environment variables.

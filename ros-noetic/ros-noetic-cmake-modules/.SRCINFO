@@ -12,4 +12,3 @@ pkgbase = ros-noetic-cmake-modules
 	sha256sums = fdefb27ecd0f80abaec544129e5e37aa05adabe9699a8a3da809d8c3bda3021c
 
 pkgname = ros-noetic-cmake-modules
-

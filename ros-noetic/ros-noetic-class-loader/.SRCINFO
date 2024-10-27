@@ -23,4 +23,3 @@ pkgbase = ros-noetic-class-loader
 	sha256sums = 134ef1ecfb20a7a59b89af716d209f915c8a5e0a6c1067b420fd2f38e84ba663
 
 pkgname = ros-noetic-class-loader
-

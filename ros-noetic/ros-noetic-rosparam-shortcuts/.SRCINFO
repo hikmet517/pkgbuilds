@@ -16,4 +16,3 @@ pkgbase = ros-noetic-rosparam-shortcuts
 	sha256sums = 3022ea05b63f57209ceb0fb0df21c7c8747d8af9825949a65e94d9cb7a2ef8cc
 
 pkgname = ros-noetic-rosparam-shortcuts
-
