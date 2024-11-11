@@ -1,7 +1,7 @@
 #Maintainer Mike Harris <mike.a.harris@outlook.com>
 _pkgname=CANopenEditor
 pkgname=canopeneditor-bin
-_pkgver=4.2.1
+_pkgver=4.2.2
 pkgver=v$_pkgver
 pkgrel=1
 pkgdesc="CANopen Object Dictionary Editor"
@@ -9,7 +9,7 @@ url="https://github.com/CANopenNode/CANopenEditor"
 arch=('x86_64')
 license=('GPL')
 depends=("mono")
-source=("https://github.com/CANopenNode/$_pkgname/releases/download/$pkgver/binary.zip"
+source=("https://github.com/CANopenNode/$_pkgname/releases/download/$pkgver/CANopenEditor-$pkgver-binary.zip"
         "CANopenEditor.desktop")
 md5sums=("SKIP"
          "SKIP")
