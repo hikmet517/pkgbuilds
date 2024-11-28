@@ -95,4 +95,4 @@ if __name__ == '__main__':
         print_yellow(f'\nINSTALLING "{dep}" AS A DEPENDENCY OF "{args.package}"')
         install(dep, True)
 
-    run("makepkg -i", shell=True, cwd=args.package)
+    run("makepkg --noconfirm --install --cleanbuild", shell=True, cwd=args.package)
