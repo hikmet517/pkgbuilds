@@ -1,0 +1,24 @@
+pkgname='python-textual-serve'
+_name=${pkgname#python-}
+pkgver='1.1.1'
+_src_folder="textual_serve-${pkgver}"
+pkgrel=1
+pkgdesc="Turn your Textual TUIs in to web applications"
+url="https://github.com/Textualize/textual-serve"
+depends=(python-jinja python-aiohttp python-aiohttp-jinja2 python-rich python-textual)
+makedepends=(python-build python-installer python-wheel)
+license=('MIT')
+arch=('any')
+source=("https://files.pythonhosted.org/packages/source/${_name::1}/${_name//-/_}/${_name//-/_}-${pkgver}.tar.gz")
+sha256sums=('71c662472c462e5e368defc660ee6e8eae3bfda88ca40c050c55474686eb0c54')
+
+build() {
+    cd "${srcdir}/${_src_folder}"
+    python -m build --wheel --no-isolation
+}
+
+package() {
+
+    cd "${srcdir}/${_src_folder}"
+    python -m installer --destdir="${pkgdir}" dist/*.whl
+}
