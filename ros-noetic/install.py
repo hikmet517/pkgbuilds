@@ -48,29 +48,29 @@ def check_installed(pkg: str) -> bool:
     return p.returncode == 0
 
 
-def install(pkg: str, asdeps: bool=False) -> None:
+def install(pkg: str, asdeps: bool=False) -> int:
     if check_installed(pkg):
         print_yellow(f'{pkg} IS ALREADY INSTALLED')
-        return
+        return 0
 
     # try this custom ros packages first
     asdep = '--asdeps' if asdeps is True else ''
     if os.path.isdir(pkg):
         print_yellow(f'INSTALLING "{pkg}" WITH CUSTOM PKGBUILDS')
-        run(f"python install.py {asdep} {pkg}", shell=True)
-        return
+        p = run(f"python install.py {asdep} {pkg}", shell=True)
+        return p.returncode
 
     # try pacman
     p = run(f"pacman -Ss '^{pkg}$'", shell=True)
     if p.returncode == 0:
         print_yellow(f'INSTALLING "{pkg}" WITH PACMAN')
-        run(f"sudo pacman -S {asdep} {pkg}", shell=True)
-        return
+        p = run(f"sudo pacman -S {asdep} {pkg}", shell=True)
+        return p.returncode
 
     # try aur
     print_yellow(f'INSTALLING "{pkg}" WITH YAY')
-    run(f"yay --aur -S {asdep} {pkg}", shell=True)
-    return
+    p = run(f"yay --aur -S {asdep} {pkg}", shell=True)
+    return p.returncode
 
 
 if __name__ == '__main__':
@@ -92,7 +92,12 @@ if __name__ == '__main__':
     deps = get_dependencies(args.package)
     print_yellow('DEPS:', deps)
     for dep in deps:
-        print_yellow(f'\nINSTALLING "{dep}" AS A DEPENDENCY OF "{args.package}"')
-        install(dep, True)
+        if check_installed(dep) is False:
+            print_yellow(f'\nINSTALLING "{dep}" AS A DEPENDENCY OF "{args.package}"')
+            if install(dep, True) != 0:
+                print_red(f'FAILED TO INSTALL PACKAGE "{args.package}"')
+                print_red(f'  BECAUSE DEPENDENCY "{dep}" FAILED, EXITING...')
+                exit(2)
 
-    run("makepkg --noconfirm --install --cleanbuild", shell=True, cwd=args.package)
+    p = run("makepkg --noconfirm --install --cleanbuild", shell=True, cwd=args.package)
+    exit(p.returncode)

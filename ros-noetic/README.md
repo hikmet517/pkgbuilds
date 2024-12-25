@@ -3,6 +3,17 @@
   makepkg --printsrcinfo > .SRCINFO
 ```
 
+- cleaning
+```
+    # clean yay cache
+    rm -rf ~/.cache/yay/....
+
+    # pre-build packages and src, pkg
+    rm -rf */src/
+    rm -rf */pkg/
+    rm -rf */*.pkg.tar
+    rm -rf */*.pkg.tar.xz
+```
 
 - find `ros-noetic` packages
 ```fish
