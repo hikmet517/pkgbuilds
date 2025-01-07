@@ -10,50 +10,57 @@ pkgrel=1
 license=('BSD')
 
 ros_makedepends=(
-	ros-noetic-tf2
-	ros-noetic-rospy
-	ros-noetic-catkin
+    ros-noetic-tf2
+    ros-noetic-rospy
+    ros-noetic-catkin
 )
 
 makedepends=(
-	'cmake'
-	'ros-build-tools'
-	${ros_makedepends[@]}
+    'cmake'
+    'ros-build-tools'
+    ${ros_makedepends[@]}
 )
 
 ros_depends=(
-	ros-noetic-tf2
-	ros-noetic-rospy
+    ros-noetic-tf2
+    ros-noetic-rospy
 )
 
 depends=(
-	${ros_depends[@]}
+    ${ros_depends[@]}
 )
 
 _dir="geometry2-${pkgver}/tf2_py"
-source=("${pkgname}-${pkgver}.tar.gz"::"https://github.com/ros/geometry2/archive/${pkgver}.tar.gz")
-sha256sums=('edda09208a93761fd728e80d5acc487140fa6137f85fad124f82827128997f3c')
+source=("${pkgname}-${pkgver}.tar.gz"::"https://github.com/ros/geometry2/archive/${pkgver}.tar.gz"
+       "0.7.7-python3.13-callobject-fix.patch")
+sha256sums=('edda09208a93761fd728e80d5acc487140fa6137f85fad124f82827128997f3c'
+            'eda3c7e1e40493d83defae7bf527333b25fb081fc4e6688348930068c8e1827c')
+
+prepare() {
+    cd ${srcdir}/${_dir}
+    patch -p2 < "${srcdir}/0.7.7-python3.13-callobject-fix.patch"
+}
 
 build() {
-	# Use ROS environment variables.
-	source /usr/share/ros-build-tools/clear-ros-env.sh
-	[ -f /opt/ros/noetic/setup.bash ] && source /opt/ros/noetic/setup.bash
+    # Use ROS environment variables.
+    source /usr/share/ros-build-tools/clear-ros-env.sh
+    [ -f /opt/ros/noetic/setup.bash ] && source /opt/ros/noetic/setup.bash
 
-	# Create the build directory.
-	[ -d ${srcdir}/build ] || mkdir ${srcdir}/build
-	cd ${srcdir}/build
+    # Create the build directory.
+    [ -d ${srcdir}/build ] || mkdir ${srcdir}/build
+    cd ${srcdir}/build
 
-	# Build the project.
-	cmake ${srcdir}/${_dir} \
-		-DCATKIN_ENABLE_TESTING=OFF \
-		-DCATKIN_BUILD_BINARY_PACKAGE=ON \
-		-DCMAKE_INSTALL_PREFIX=/opt/ros/noetic \
-		-DPYTHON_EXECUTABLE=/usr/bin/python \
-		-DSETUPTOOLS_DEB_LAYOUT=OFF
-	make
+    # Build the project.
+    cmake ${srcdir}/${_dir} \
+        -DCATKIN_ENABLE_TESTING=OFF \
+        -DCATKIN_BUILD_BINARY_PACKAGE=ON \
+        -DCMAKE_INSTALL_PREFIX=/opt/ros/noetic \
+        -DPYTHON_EXECUTABLE=/usr/bin/python \
+        -DSETUPTOOLS_DEB_LAYOUT=OFF
+    make
 }
 
 package() {
-	cd "${srcdir}/build"
-	make DESTDIR="${pkgdir}/" install
+    cd "${srcdir}/build"
+    make DESTDIR="${pkgdir}/" install
 }
