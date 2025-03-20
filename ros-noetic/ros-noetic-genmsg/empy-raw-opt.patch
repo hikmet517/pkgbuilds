@@ -1,0 +1,13 @@
+diff --git a/src/genmsg/template_tools.py b/src/genmsg/template_tools.py
+index 8f1e9c4..e26c290 100644
+--- a/src/genmsg/template_tools.py
++++ b/src/genmsg/template_tools.py
+@@ -74,7 +74,7 @@ def _generate_from_spec(input_file, output_dir, template_dir, msg_context, spec,
+             g['msg_definition'] = msg_definition
+ 
+         # todo, reuse interpreter
+-        interpreter = em.Interpreter(output=ofile, globals=g, options={em.RAW_OPT:True,em.BUFFERED_OPT:True})
++        interpreter = em.Interpreter(output=ofile, globals=g)
+         if not os.path.isfile(template_file):
+             ofile.close()
+             os.remove(output_file)

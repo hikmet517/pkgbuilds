@@ -10,6 +10,8 @@ pkgbase = ros-noetic-genmsg
 	makedepends = ros-noetic-catkin
 	depends = ros-noetic-catkin
 	source = ros-noetic-genmsg-0.6.0.tar.gz::https://github.com/ros/genmsg/archive/0.6.0.tar.gz
+	source = empy-raw-opt.patch
 	sha256sums = 5e1169b03aebab158f762120cd2f7d8cfabb42885d51d853564f783d2b22fb3e
+	sha256sums = 20e76a0f04bcd62d9be6cc788ec75655669c004dc9d4c691d43ecc884744902a
 
 pkgname = ros-noetic-genmsg

@@ -1,3 +1,5 @@
+# ros-noetic
+
 - DON'T FORGET TO UPDATE `.SRCINFO` after changing ~PKGBUILD~
 ```fish
   makepkg --printsrcinfo > .SRCINFO
@@ -52,4 +54,31 @@
 
 ```fish
   pacman -Qsq ros-noetic | sudo pacman -R -
+```
+
+
+# Delete all ros packages
+```
+  sudo pacman -R (pacman -Q | grep ros-noetic | sed -E 's|([^ ]+) .+|\1|g')
+  sudo pacman -R python-catkin-tools-git
+  sudo pacman -R python-catkin-tools
+  sudo pacman -R python-rosdep
+  sudo pacman -R python-rosdistro
+  sudo pacman -R python-rospkg
+  sudo pacman -R python-catkin_lint
+  sudo pacman -R python-catkin_pkg
+  sudo pacman -R ros-build-tools
+  sudo pacman -Rns (pacman -Qtdq)
+```
+
+# clean package caches
+```
+    # clean yay cache
+    rm -rf ~/.cache/yay/....
+
+    # pre-build packages and src, pkg
+    rm -rf */src/
+    rm -rf */pkg/
+    rm -rf */*.pkg.tar
+    rm -rf */*.pkg.tar.xz
 ```
