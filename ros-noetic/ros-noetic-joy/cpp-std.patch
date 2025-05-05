@@ -1,0 +1,13 @@
+diff --git a/joy/CMakeLists.txt b/joy/CMakeLists.txt
+index 3b53555..496ed12 100644
+--- a/joy/CMakeLists.txt
++++ b/joy/CMakeLists.txt
+@@ -1,7 +1,7 @@
+ cmake_minimum_required(VERSION 3.5)
+ project(joy)
+ 
+-set(CMAKE_CXX_STANDARD 11)
++set(CMAKE_CXX_STANDARD 14)
+ set(CMAKE_CXX_STANDARD_REQUIRED ON)
+ 
+ # Load catkin and all dependencies required for this package

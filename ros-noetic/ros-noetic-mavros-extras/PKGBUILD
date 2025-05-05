@@ -49,7 +49,8 @@ build() {
         -DCMAKE_INSTALL_PREFIX=/opt/ros/noetic \
         -DPYTHON_EXECUTABLE=/usr/bin/python \
         -DCMAKE_CXX_STANDARD=17 \
-        -DSETUPTOOLS_DEB_LAYOUT=OFF
+        -DSETUPTOOLS_DEB_LAYOUT=OFF \
+        -DCMAKE_POLICY_VERSION_MINIMUM=3.5
   make -sC build
 }
 

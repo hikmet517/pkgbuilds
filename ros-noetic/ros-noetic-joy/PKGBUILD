@@ -2,7 +2,7 @@ pkgdesc="ROS - ROS driver for a generic Linux joystick."
 url='https://wiki.ros.org/joy'
 
 pkgname='ros-noetic-joy'
-pkgver='1.15.0'
+pkgver='1.15.1'
 arch=('i686' 'x86_64' 'aarch64' 'armv7h' 'armv6h')
 pkgrel=2
 license=('BSD')
@@ -33,8 +33,15 @@ depends=(
 )
 
 _dir="joystick_drivers-${pkgver}/joy"
-source=("${pkgname}-${pkgver}.tar.gz"::"https://github.com/ros-drivers/joystick_drivers/archive/${pkgver}.tar.gz")
-sha256sums=('37e82742674a5fd4cf9959051aeae3bb961da74f254f891909d10589266166ad')
+source=("${pkgname}-${pkgver}.tar.gz"::"https://github.com/ros-drivers/joystick_drivers/archive/${pkgver}.tar.gz"
+        "cpp-std.patch")
+sha256sums=('214e63d76567ef6133b7c4962fbe9bc699eab8fe95d6c1b5c724ccdea18d6ee0'
+            'SKIP')
+
+prepare() {
+    cd ${srcdir}/${_dir}
+    patch -p2 < "${srcdir}/cpp-std.patch"
+}
 
 build() {
     # Use ROS environment variables
@@ -51,7 +58,9 @@ build() {
           -DCATKIN_BUILD_BINARY_PACKAGE=ON \
           -DCMAKE_INSTALL_PREFIX=/opt/ros/noetic \
           -DPYTHON_EXECUTABLE=/usr/bin/python \
-          -DSETUPTOOLS_DEB_LAYOUT=OFF
+          -DSETUPTOOLS_DEB_LAYOUT=OFF \
+          -DCMAKE_POLICY_VERSION_MINIMUM=3.5 \
+          -DCMAKE_CXX_STANDARD=17 \
     make
 }
 

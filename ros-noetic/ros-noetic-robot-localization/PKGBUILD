@@ -48,8 +48,15 @@ depends=(
 )
 
 _dir="robot_localization-${pkgver}"
-source=("${pkgname}-${pkgver}.tar.gz"::"https://github.com/cra-ros-pkg/robot_localization/archive/${pkgver}.tar.gz")
-sha256sums=('3f4b7d681430840a4adfb91b26231262114630ba5229a626b43ecf2cf95fc038')
+source=("${pkgname}-${pkgver}.tar.gz"::"https://github.com/cra-ros-pkg/robot_localization/archive/${pkgver}.tar.gz"
+        "werror.patch")
+sha256sums=('3f4b7d681430840a4adfb91b26231262114630ba5229a626b43ecf2cf95fc038'
+            'SKIP')
+
+prepare() {
+    cd ${srcdir}/${_dir}
+    patch -p1 < "${srcdir}/werror.patch"
+}
 
 build() {
   # Use ROS environment variables
@@ -66,7 +73,8 @@ build() {
         -DCATKIN_BUILD_BINARY_PACKAGE=ON \
         -DCMAKE_INSTALL_PREFIX=/opt/ros/noetic \
         -DPYTHON_EXECUTABLE=/usr/bin/python \
-        -DSETUPTOOLS_DEB_LAYOUT=OFF
+        -DSETUPTOOLS_DEB_LAYOUT=OFF \
+        -DCMAKE_POLICY_VERSION_MINIMUM=3.5
   make
 }
 

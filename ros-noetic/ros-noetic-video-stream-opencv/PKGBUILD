@@ -55,7 +55,8 @@ build() {
             -DPYTHON_INCLUDE_DIR=/usr/include/python3.8m \
             -DPYTHON_LIBRARY=/usr/lib/libpython3.8m.so \
             -DPYTHON_BASENAME=.cpython-38m \
-            -DSETUPTOOLS_DEB_LAYOUT=OFF
+            -DSETUPTOOLS_DEB_LAYOUT=OFF \
+            -DCMAKE_POLICY_VERSION_MINIMUM=3.5
   make
 }
 

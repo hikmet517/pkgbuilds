@@ -44,7 +44,8 @@ build() {
             -DPYTHON_INCLUDE_DIR=/usr/include/python3.9 \
             -DPYTHON_LIBRARY=/usr/lib/libpython3.9.so \
             -DPYTHON_BASENAME=-python3.9 \
-            -DSETUPTOOLS_DEB_LAYOUT=OFF
+            -DSETUPTOOLS_DEB_LAYOUT=OFF \
+            -DCMAKE_POLICY_VERSION_MINIMUM=3.5
     make -C build
 }
 
