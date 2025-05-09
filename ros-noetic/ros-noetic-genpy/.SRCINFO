@@ -1,0 +1,17 @@
+pkgbase = ros-noetic-genpy
+	pkgdesc = ROS - Python ROS message and service generators.
+	pkgver = 0.6.16
+	pkgrel = 1
+	url = https://wiki.ros.org/genpy
+	arch = any
+	license = BSD
+	makedepends = cmake
+	makedepends = ros-build-tools
+	makedepends = ros-noetic-genmsg
+	makedepends = ros-noetic-catkin
+	depends = ros-noetic-genmsg
+	depends = python-yaml
+	source = ros-noetic-genpy-0.6.16.tar.gz::https://github.com/ros/genpy/archive/0.6.16.tar.gz
+	sha256sums = a0cf129fe90cf342090aac4ca63c33f993f4feecdaf5bc74f410b633e3ea0afc
+
+pkgname = ros-noetic-genpy

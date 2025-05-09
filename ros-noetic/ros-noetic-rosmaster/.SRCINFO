@@ -1,0 +1,16 @@
+pkgbase = ros-noetic-rosmaster
+	pkgdesc = ROS - ROS Master implementation.
+	pkgver = 1.17.0
+	pkgrel = 1
+	url = https://wiki.ros.org/rosmaster
+	arch = any
+	license = BSD
+	makedepends = cmake
+	makedepends = ros-build-tools
+	makedepends = ros-noetic-catkin
+	depends = ros-noetic-rosgraph
+	depends = python-defusedxml
+	source = ros-noetic-rosmaster-1.17.0.tar.gz::https://github.com/ros/ros_comm/archive/1.17.0.tar.gz
+	sha256sums = 3937e5cd3043db5e8d2a2e522068a5b7b28dbb4959ee909730675ed4c82d70b7
+
+pkgname = ros-noetic-rosmaster

@@ -1,0 +1,21 @@
+pkgbase = ros-noetic-tf2-bullet
+	pkgdesc = ROS - tf2_bullet.
+	pkgver = 0.7.7
+	pkgrel = 1
+	url = https://wiki.ros.org/tf2_bullet
+	arch = any
+	license = BSD
+	makedepends = cmake
+	makedepends = ros-build-tools
+	makedepends = ros-noetic-tf2
+	makedepends = ros-noetic-geometry-msgs
+	makedepends = ros-noetic-catkin
+	makedepends = bullet
+	makedepends = pkg-config
+	depends = ros-noetic-tf2
+	depends = ros-noetic-geometry-msgs
+	depends = bullet
+	source = ros-noetic-tf2-bullet-0.7.7.tar.gz::https://github.com/ros/geometry2/archive/0.7.7.tar.gz
+	sha256sums = edda09208a93761fd728e80d5acc487140fa6137f85fad124f82827128997f3c
+
+pkgname = ros-noetic-tf2-bullet

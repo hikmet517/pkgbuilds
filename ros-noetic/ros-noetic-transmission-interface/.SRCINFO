@@ -1,0 +1,27 @@
+pkgbase = ros-noetic-transmission-interface
+	pkgdesc = ROS - Transmission Interface.
+	pkgver = 0.20.0
+	pkgrel = 1
+	url = https://github.com/ros-controls/ros_control/wiki
+	arch = i686
+	arch = x86_64
+	arch = aarch64
+	arch = armv7h
+	arch = armv6h
+	license = BSD
+	makedepends = cmake
+	makedepends = ros-build-tools
+	makedepends = ros-noetic-pluginlib
+	makedepends = ros-noetic-catkin
+	makedepends = ros-noetic-roscpp
+	makedepends = ros-noetic-hardware-interface
+	makedepends = ros-noetic-cmake-modules
+	makedepends = ros-noetic-resource-retriever
+	makedepends = tinyxml
+	depends = ros-noetic-pluginlib
+	depends = ros-noetic-roscpp
+	depends = tinyxml
+	source = ros-noetic-transmission-interface-0.20.0.tar.gz::https://github.com/ros-controls/ros_control/archive/0.20.0.tar.gz
+	sha256sums = 28adcdf8e410bcee60415eebd8087f7b5c60af9833df9a75120e0250a7e459e8
+
+pkgname = ros-noetic-transmission-interface

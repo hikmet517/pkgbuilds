@@ -1,0 +1,22 @@
+pkgbase = ros-noetic-cpp-common
+	pkgdesc = ROS - cpp_common contains C++ code for doing things that are not necessarily ROS related, but are useful for multiple packages.
+	pkgver = 0.7.3
+	pkgrel = 1
+	url = https://wiki.ros.org/cpp_common
+	arch = i686
+	arch = x86_64
+	arch = aarch64
+	arch = armv7h
+	arch = armv6h
+	license = BSD
+	makedepends = cmake
+	makedepends = ros-build-tools
+	makedepends = ros-noetic-catkin
+	makedepends = boost
+	makedepends = console-bridge
+	depends = boost
+	depends = console-bridge
+	source = ros-noetic-cpp-common-0.7.3.tar.gz::https://github.com/ros/roscpp_core/archive/0.7.3.tar.gz
+	sha256sums = 9ada9ab00f1c28ef39069f8bb8642a33f127d6c5c49bc3d9057cadbd8d7c172e
+
+pkgname = ros-noetic-cpp-common

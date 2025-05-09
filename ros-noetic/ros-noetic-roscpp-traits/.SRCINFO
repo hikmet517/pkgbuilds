@@ -1,0 +1,20 @@
+pkgbase = ros-noetic-roscpp-traits
+	pkgdesc = ROS - roscpp_traits contains the message traits code as described in MessagesTraits.
+	pkgver = 0.7.3
+	pkgrel = 1
+	url = https://wiki.ros.org/roscpp_traits
+	arch = i686
+	arch = x86_64
+	arch = aarch64
+	arch = armv7h
+	arch = armv6h
+	license = BSD
+	makedepends = cmake
+	makedepends = ros-build-tools
+	makedepends = ros-noetic-catkin
+	depends = ros-noetic-rostime
+	depends = ros-noetic-cpp-common
+	source = ros-noetic-roscpp-traits-0.7.3.tar.gz::https://github.com/ros/roscpp_core/archive/0.7.3.tar.gz
+	sha256sums = 9ada9ab00f1c28ef39069f8bb8642a33f127d6c5c49bc3d9057cadbd8d7c172e
+
+pkgname = ros-noetic-roscpp-traits
