@@ -1,0 +1,13 @@
+diff --git a/grid_map_cv/CMakeLists.txt b/grid_map_cv/CMakeLists.txt
+index d23798f..799ff62 100644
+--- a/grid_map_cv/CMakeLists.txt
++++ b/grid_map_cv/CMakeLists.txt
+@@ -1,7 +1,7 @@
+ cmake_minimum_required(VERSION 3.5.1)
+ project(grid_map_cv)
+ 
+-set(CMAKE_CXX_FLAGS "-std=c++11 ${CMAKE_CXX_FLAGS}")
++set(CMAKE_CXX_FLAGS "-std=c++14 ${CMAKE_CXX_FLAGS}")
+ 
+ set(CMAKE_EXPORT_COMPILE_COMMANDS ON)
+ 

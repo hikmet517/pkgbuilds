@@ -1,0 +1,204 @@
+From 224e54e2d196edfb6414a92efc5d8034bbb6aa2b Mon Sep 17 00:00:00 2001
+From: Jochen Sprickerhof <git@jochen.sprickerhof.de>
+Date: Tue, 15 Dec 2020 09:49:57 +0100
+Subject: [PATCH 1/2] Switch to new boost/bind/bind.hpp
+
+---
+ tf/include/tf/message_filter.h  |  4 ++--
+ tf/src/tf_monitor.cpp           |  6 +++---
+ tf/test/test_message_filter.cpp | 26 +++++++++++++-------------
+ 3 files changed, 18 insertions(+), 18 deletions(-)
+
+diff --git a/tf/include/tf/message_filter.h b/tf/include/tf/message_filter.h
+index 8d09a5cb..b8cf860f 100644
+--- a/tf/include/tf/message_filter.h
++++ b/tf/include/tf/message_filter.h
+@@ -40,7 +40,7 @@
+ #include <list>
+ #include <vector>
+ #include <boost/function.hpp>
+-#include <boost/bind.hpp>
++#include <boost/bind/bind.hpp>
+ #include <boost/shared_ptr.hpp>
+ #include <boost/weak_ptr.hpp>
+ #include <boost/thread.hpp>
+@@ -302,7 +302,7 @@ class MessageFilter : public MessageFilterBase, public message_filters::SimpleFi
+   message_filters::Connection registerFailureCallback(const FailureCallback& callback)
+   {
+     boost::mutex::scoped_lock lock(failure_signal_mutex_);
+-    return message_filters::Connection(boost::bind(&MessageFilter::disconnectFailure, this, _1), failure_signal_.connect(callback));
++    return message_filters::Connection(boost::bind(&MessageFilter::disconnectFailure, this, boost::placeholders::_1), failure_signal_.connect(callback));
+   }
+ 
+   virtual void setQueueSize( uint32_t new_queue_size )
+diff --git a/tf/src/tf_monitor.cpp b/tf/src/tf_monitor.cpp
+index 878c1b46..59c0a666 100644
+--- a/tf/src/tf_monitor.cpp
++++ b/tf/src/tf_monitor.cpp
+@@ -35,7 +35,7 @@
+ #include "tf/tf.h"
+ #include "tf/transform_listener.h"
+ #include <string>
+-#include <boost/bind.hpp>
++#include <boost/bind/bind.hpp>
+ #include <boost/thread.hpp>
+ #include "ros/ros.h"
+ 
+@@ -168,8 +168,8 @@ class TFMonitor
+       }
+       cout <<endl;*/
+     }
+-    subscriber_tf_ = node_.subscribe<tf::tfMessage>("tf", 100, boost::bind(&TFMonitor::callback, this, _1));
+-    subscriber_tf_static_ = node_.subscribe<tf::tfMessage>("tf_static", 100, boost::bind(&TFMonitor::static_callback, this, _1));
++    subscriber_tf_ = node_.subscribe<tf::tfMessage>("tf", 100, boost::bind(&TFMonitor::callback, this, boost::placeholders::_1));
++    subscriber_tf_static_ = node_.subscribe<tf::tfMessage>("tf_static", 100, boost::bind(&TFMonitor::static_callback, this, boost::placeholders::_1));
+     
+   }
+ 
+diff --git a/tf/test/test_message_filter.cpp b/tf/test/test_message_filter.cpp
+index 632ec905..ddc4e520 100644
+--- a/tf/test/test_message_filter.cpp
++++ b/tf/test/test_message_filter.cpp
+@@ -33,7 +33,7 @@
+ #include <tf/transform_listener.h>
+ #include <tf/transform_broadcaster.h>
+ #include <geometry_msgs/PointStamped.h>
+-#include <boost/bind.hpp>
++#include <boost/bind/bind.hpp>
+ #include <boost/scoped_ptr.hpp>
+ 
+ #include "ros/ros.h"
+@@ -72,7 +72,7 @@ TEST(MessageFilter, noTransforms)
+   tf::TransformListener tf_client;
+ 	Notification n(1);
+ 	MessageFilter<geometry_msgs::PointStamped> filter(tf_client, "frame1", 1);
+-	filter.registerCallback(boost::bind(&Notification::notify, &n, _1));
++	filter.registerCallback(boost::bind(&Notification::notify, &n, boost::placeholders::_1));
+ 
+ 	geometry_msgs::PointStampedPtr msg(new geometry_msgs::PointStamped);
+ 	msg->header.stamp = ros::Time::now();
+@@ -87,7 +87,7 @@ TEST(MessageFilter, noTransformsSameFrame)
+   tf::TransformListener tf_client;
+   Notification n(1);
+   MessageFilter<geometry_msgs::PointStamped> filter(tf_client, "frame1", 1);
+-  filter.registerCallback(boost::bind(&Notification::notify, &n, _1));
++  filter.registerCallback(boost::bind(&Notification::notify, &n, boost::placeholders::_1));
+ 
+   geometry_msgs::PointStampedPtr msg(new geometry_msgs::PointStamped);
+   msg->header.stamp = ros::Time::now();
+@@ -102,7 +102,7 @@ TEST(MessageFilter, preexistingTransforms)
+   tf::TransformListener tf_client;
+   Notification n(1);
+   MessageFilter<geometry_msgs::PointStamped> filter(tf_client, "frame1", 1);
+-  filter.registerCallback(boost::bind(&Notification::notify, &n, _1));
++  filter.registerCallback(boost::bind(&Notification::notify, &n, boost::placeholders::_1));
+ 
+ 	ros::Time stamp = ros::Time::now();
+ 	tf::StampedTransform transform(tf::Transform(tf::Quaternion(0,0,0,1), tf::Vector3(1,2,3)), stamp, "frame1", "frame2");
+@@ -122,7 +122,7 @@ TEST(MessageFilter, postTransforms)
+   tf::TransformListener tf_client;
+   Notification n(1);
+   MessageFilter<geometry_msgs::PointStamped> filter(tf_client, "frame1", 1);
+-  filter.registerCallback(boost::bind(&Notification::notify, &n, _1));
++  filter.registerCallback(boost::bind(&Notification::notify, &n, boost::placeholders::_1));
+ 
+ 	ros::Time stamp = ros::Time::now();
+ 
+@@ -148,8 +148,8 @@ TEST(MessageFilter, queueSize)
+   tf::TransformListener tf_client;
+   Notification n(10);
+   MessageFilter<geometry_msgs::PointStamped> filter(tf_client, "frame1", 10);
+-  filter.registerCallback(boost::bind(&Notification::notify, &n, _1));
+-  filter.registerFailureCallback(boost::bind(&Notification::failure, &n, _1, _2));
++  filter.registerCallback(boost::bind(&Notification::notify, &n, boost::placeholders::_1));
++  filter.registerFailureCallback(boost::bind(&Notification::failure, &n, boost::placeholders::_1, boost::placeholders::_2));
+ 
+ 	ros::Time stamp = ros::Time::now();
+ 
+@@ -179,7 +179,7 @@ TEST(MessageFilter, setTargetFrame)
+   tf::TransformListener tf_client;
+   Notification n(1);
+   MessageFilter<geometry_msgs::PointStamped> filter(tf_client, "frame1", 1);
+-  filter.registerCallback(boost::bind(&Notification::notify, &n, _1));
++  filter.registerCallback(boost::bind(&Notification::notify, &n, boost::placeholders::_1));
+ 	filter.setTargetFrame("frame1000");
+ 
+ 	ros::Time stamp = ros::Time::now();
+@@ -201,7 +201,7 @@ TEST(MessageFilter, multipleTargetFrames)
+   tf::TransformListener tf_client;
+   Notification n(1);
+   MessageFilter<geometry_msgs::PointStamped> filter(tf_client, "", 1);
+-  filter.registerCallback(boost::bind(&Notification::notify, &n, _1));
++  filter.registerCallback(boost::bind(&Notification::notify, &n, boost::placeholders::_1));
+ 
+   std::vector<std::string> target_frames;
+   target_frames.push_back("frame1");
+@@ -239,7 +239,7 @@ TEST(MessageFilter, tolerance)
+   tf::TransformListener tf_client;
+   Notification n(1);
+   MessageFilter<geometry_msgs::PointStamped> filter(tf_client, "frame1", 1);
+-  filter.registerCallback(boost::bind(&Notification::notify, &n, _1));
++  filter.registerCallback(boost::bind(&Notification::notify, &n, boost::placeholders::_1));
+   filter.setTolerance(offset);
+ 
+ 	ros::Time stamp = ros::Time::now();
+@@ -276,7 +276,7 @@ TEST(MessageFilter, maxRate)
+   tf::TransformListener tf_client;
+   Notification n(1);
+   MessageFilter<geometry_msgs::PointStamped> filter(tf_client, "frame1", 1, ros::NodeHandle(), ros::Duration(1.0));
+-  filter.registerCallback(boost::bind(&Notification::notify, &n, _1));
++  filter.registerCallback(boost::bind(&Notification::notify, &n, boost::placeholders::_1));
+ 
+   ros::Time stamp = ros::Time::now();
+   tf::StampedTransform transform(tf::Transform(tf::Quaternion(0,0,0,1), tf::Vector3(1,2,3)), stamp, "frame1", "frame2");
+@@ -313,7 +313,7 @@ TEST(MessageFilter, outTheBackFailure)
+   tf::TransformListener tf_client;
+   Notification n(1);
+   MessageFilter<geometry_msgs::PointStamped> filter(tf_client, "frame1", 1);
+-  filter.registerFailureCallback(boost::bind(&Notification::failure, &n, _1, _2));
++  filter.registerFailureCallback(boost::bind(&Notification::failure, &n, boost::placeholders::_1, boost::placeholders::_2));
+ 
+   ros::Time stamp = ros::Time::now();
+   tf::StampedTransform transform(tf::Transform(tf::Quaternion(0,0,0,1), tf::Vector3(1,2,3)), stamp, "frame1", "frame2");
+@@ -335,7 +335,7 @@ TEST(MessageFilter, emptyFrameIDFailure)
+   tf::TransformListener tf_client;
+   Notification n(1);
+   MessageFilter<geometry_msgs::PointStamped> filter(tf_client, "frame1", 1);
+-  filter.registerFailureCallback(boost::bind(&Notification::failure, &n, _1, _2));
++  filter.registerFailureCallback(boost::bind(&Notification::failure, &n, boost::placeholders::_1, boost::placeholders::_2));
+ 
+   geometry_msgs::PointStampedPtr msg(new geometry_msgs::PointStamped);
+   msg->header.frame_id = "";
+
+From 674e0c46cd8567768502e03dce31578c10a3d5b5 Mon Sep 17 00:00:00 2001
+From: Leopold Palomo-Avellaneda <leo@alaxarxa.net>
+Date: Wed, 2 Feb 2022 14:54:43 +0100
+Subject: [PATCH 2/2] Drop CXX standards logcxx patch
+
+---
+ tf/CMakeLists.txt | 12 ------------
+ 1 file changed, 12 deletions(-)
+
+diff --git a/tf/CMakeLists.txt b/tf/CMakeLists.txt
+index 8a919682..b5a74532 100644
+--- a/tf/CMakeLists.txt
++++ b/tf/CMakeLists.txt
+@@ -1,18 +1,6 @@
+ cmake_minimum_required(VERSION 3.0.2)
+ project(tf)
+ 
+-include(CheckCXXCompilerFlag)
+-unset(COMPILER_SUPPORTS_CXX11 CACHE)
+-if(MSVC)
+-  # https://docs.microsoft.com/en-us/cpp/build/reference/std-specify-language-standard-version
+-  # MSVC has c++14 enabled by default, no need to specify c++11
+-else()
+-  check_cxx_compiler_flag(-std=c++11 COMPILER_SUPPORTS_CXX11)
+-  if(COMPILER_SUPPORTS_CXX11)
+-    add_compile_options(-std=c++11)
+-  endif()
+-endif()
+-
+ find_package(catkin REQUIRED COMPONENTS
+     angles
+     geometry_msgs

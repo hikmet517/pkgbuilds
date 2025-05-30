@@ -1,0 +1,19 @@
+pkgbase = ros-noetic-grid-map-core
+    pkgdesc = Universal grid map library for mobile robotic mapping.
+    pkgver = 1.6.4
+    pkgrel = 1
+    url = https://wiki.ros.org/grid_map_core
+    arch = i686
+    arch = x86_64
+    arch = aarch64
+    arch = armv7h
+    arch = armv6h
+    license = BSD
+    makedepends = cmake
+    makedepends = ros-build-tools
+    makedepends = ros-noetic-catkin
+    makedepends = eigen
+    source = ros-noetic-grid-map-core-1.6.4.tar.gz::https://github.com/ANYbotics/grid_map/archive/1.6.4.tar.gz
+    sha256sums = 72788e34f0b48ab25f6d4d8b0f3c5ecf2eaeb4ac536ae168a397cdfe448a9d8e
+
+pkgname = ros-noetic-grid-map-core
